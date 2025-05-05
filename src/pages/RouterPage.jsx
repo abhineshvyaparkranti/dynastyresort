@@ -43,6 +43,11 @@ import RoomDetailsSimilarPage from "./RoomDetailsSimilarPage";
 import MicePageBusiness from "./MicePageBusiness";
 import MicePageWedding from "./MicePageWedding";
 import MicePageSastang from "./MicePageSastang";
+import PrivacyPage from "./PrivacyPage";
+ 
+// import TermsCondition from './TermsConditionPage';
+import TermsConditionPage from "./TermsConditionPage";
+import RefundPolicy from "./RefundPolicy";
 
 function RouterPage() {
   return (
@@ -91,6 +96,9 @@ function RouterPage() {
           <Route path="/mice-business" element={<MicePageBusiness />} />
           <Route path="/mice-wedding" element={<MicePageWedding />} />
           <Route path="/mice-sastang" element={<MicePageSastang />} />
+           <Route path="/privacy" element={<PrivacyPage />} />
+           <Route path="/refund" element={<RefundPolicy />} />
+           <Route path="/termscondition" element={<TermsConditionPage />} />
         </Routes>
 
         {/* GDPR Cookie Consent Component */}

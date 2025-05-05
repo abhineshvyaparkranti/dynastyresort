@@ -138,7 +138,7 @@
 
 // export default FacilitiesSeven
   
- import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { jarallax } from 'jarallax';
 import Skeleton from 'react-loading-skeleton';
@@ -176,7 +176,7 @@ function FacilitiesSeven() {
                     setFacilities(facilityData);
                     setFacilityBanner(response?.facility_banner);  
                     setTotalPages(response.facility.last_page);
-                    console.log("facilities data ============>", facilityBanner)
+                    console.log("facilities data ============>", response.facility)
                 } else {
                     setFacilities([]);
                     setTotalPages(1);

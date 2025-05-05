@@ -407,11 +407,11 @@ const PackagePage = () => {
       id: pkg.id,
       name: pkg.title,
       category: pkg.category.toLowerCase().replace(' ', ''),
-      price: `$${pkg.price}`,
+      price: `${pkg.price}`,
       priceDetails: pkg.allowance_details,
       description: pkg.description ? stripHtmlTags(pkg.description) : "No description available",
       image: pkg.image || "/api/placeholder/600/400",
-      discount: pkg.offer_price ? `$${pkg.offer_price} OFF` : "",
+      discount: pkg.offer_price ? `${pkg.offer_price} OFF` : "",
       features: parseFeatures(pkg.features || ""),
       popular: Math.random() > 0.5, // Random for demo purposes
       duration: "Flexible stay options"
@@ -601,7 +601,11 @@ const PackagePage = () => {
                           {/* <span className="feature-icon me-2" style={{ color: 'var(--btn-1)' }}> 
                             {feature.icon}
                           </span> */}
-                          <span className="feature-text">{feature.text}</span>
+                         <span className="feature-text">
+                          {feature.text.split(' ').slice(0, 10).join(' ')}
+                          {feature.text.split(' ').length > 10 && '...'}
+                        </span>
+
                         </div>
                       ))}
                     </div>
@@ -611,9 +615,9 @@ const PackagePage = () => {
                       <Button style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}>
                         Book Now
                       </Button>
-                      <Button variant="outline-secondary">
+                      {/* <Button variant="outline-secondary">
                         Learn More
-                      </Button>
+                      </Button> */}
                     </div>
                   </Card.Footer>
                 </Card>

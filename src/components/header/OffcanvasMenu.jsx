@@ -1,8 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+// import Skeleton from 'react-loading-skeleton';
+// import 'react-loading-skeleton/dist/skeleton.css';
+import { getContact } from './../../api/getContact';
 
 function OffcanvasMenu({ isOpen, onClose }) {
     const [activeMenu, setActiveMenu] = useState(null);
+
+     const [contact, setContact] = useState(null);
+     const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getContact()
+      .then((data) => {
+        // Strip HTML tags from string fields
+        const clean = (str) => str?.replace(/<\/?[^>]+(>|$)/g, "").trim();
+        setContact({
+          ...data,
+          mail: clean(data.mail),
+          mobile: clean(data.mobile),
+          address: clean(data.address),
+          facebook: clean(data.facebook),
+          instagram: clean(data.instagram),
+          twitter: clean(data.twitter),
+          youtube: clean(data.youtube),
+          linkedin: clean(data.linkedin),
+          footer_content: clean(data.footer_content),
+        });
+        console.log("footer data ================>", data);
+
+      })
+      .catch((err) => {
+        console.error("Error fetching contact data:", err);
+      })
+      .finally(() => setLoading(false));
+  }, []);
 
     // Toggle the active state of a dropdown menu
     const toggleMenu = (index) => {
@@ -19,11 +51,11 @@ function OffcanvasMenu({ isOpen, onClose }) {
                         <div className="offcanvase__top">
                             <div className="offcanvase__logo">
                                 <Link to="/">
-                                    <img src="/assets/images/logo/logo__two.svg" alt="logo" />
+                                    <img src="/assets/images/logo/dynastylogo.png" alt="logo"  style={{ height: '100px', padding: '10px', objectFit: 'contain' }} />
                                 </Link>
                             </div>
                             <p className="description">
-                                Welcome to Moonlit, where luxury meets comfort in the heart of Canada. Since 1999, we have been dedicated to providing.
+                                {contact?.footer_content}
                             </p>
                         </div>
                         <div className="offcanvase__mobile__menu">
@@ -82,7 +114,7 @@ function OffcanvasMenu({ isOpen, onClose }) {
                                         </li> */}
 
                                          <li className={`slide has__children ${activeMenu === 4 ? "active" : ""}`}>
-                                            <Link className="slide__menu__item" to="/event" onClick={() => toggleMenu(4)}>
+                                            <Link className="slide__menu__item" to="#" onClick={() => toggleMenu(4)}>
                                                 Mice
                                                 <span className="toggle" />
                                             </Link>
@@ -156,21 +188,21 @@ function OffcanvasMenu({ isOpen, onClose }) {
                                 <div className="item">
                                     <span className="h6">Phone</span>
                                     <Link to="tel:+1234567890">
-                                        <i className="flaticon-phone-flip" /> +1234567890
+                                        <i className="flaticon-phone-flip" /> {contact?.mobile}
                                     </Link>
                                 </div>
                                 <div className="item">
                                     <span className="h6">Email</span>
                                     <Link to="mailto:info@hostie.com">
                                         <i className="flaticon-envelope" />
-                                        info@hostie.com
+                                        {contact?.mail}
                                     </Link>
                                 </div>
                                 <div className="item">
                                     <span className="h6">Address</span>
                                     <Link to="#">
-                                        <i className="flaticon-marker" /> 280 Augusta Avenue, M5T 2L9 Toronto,
-                                        Canada
+                                        <i className="flaticon-marker" /> {contact?.address}
+                                        
                                     </Link>
                                 </div>
                             </div>

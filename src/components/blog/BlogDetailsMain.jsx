@@ -312,6 +312,11 @@ function BlogDetailsMain() {
     const [loading, setLoading] = useState(true);
     const [relatedPosts, setRelatedPosts] = useState([]);
 
+    const blogTitle = blogPost?.title || 'Check out this blog!';
+    const blogSlug = blogPost?.slug || id;
+    const blogUrl = `https://dynastyresort.vyaparkranti.com/${blogSlug}`;
+
+
     useEffect(() => {
         // Scroll to top when component mounts
         window.scrollTo(0, 0);
@@ -329,6 +334,7 @@ function BlogDetailsMain() {
                     // If there are related posts in the API response
                     if (data.related_posts) {
                         setRelatedPosts(data.related_posts);
+                        console.log("✅ Related blog posts fetched:", data.related_posts);
                     }
                 } else {
                     console.warn("Unexpected blog details API response:", data);
@@ -418,21 +424,21 @@ function BlogDetailsMain() {
                             <div className="blog__details">
                                 <div className="blog__details__content">
                                     <div dangerouslySetInnerHTML={{ __html: blogPost.content || blogPost.description || `
-                                        <p class="description">
-                                            Welcome to Career Compass, your ultimate destination for career
-                                            advice, job search strategies, and professional development
-                                            insights. Whether you're a recent graduate, seasoned professional,
-                                            or someone considering a career change, our blog is your trusted
-                                            guide to help you navigate the ever-evolving landscape of the job
-                                            market.
-                                            <br />
-                                            At Career Compass, we understand that finding the right career
-                                            path can be daunting. That's why we offer a wealth of resources to
-                                            empower you on your journey. From resume writing tips and
-                                            interview techniques to networking advice and skill-building
-                                            strategies, our expert contributors share their knowledge and
-                                            expertise to equip you with the tools you need to succeed.
-                                        </p>
+                                        // <p class="description">
+                                        //     Welcome to Career Compass, your ultimate destination for career
+                                        //     advice, job search strategies, and professional development
+                                        //     insights. Whether you're a recent graduate, seasoned professional,
+                                        //     or someone considering a career change, our blog is your trusted
+                                        //     guide to help you navigate the ever-evolving landscape of the job
+                                        //     market.
+                                        //     <br />
+                                        //     At Career Compass, we understand that finding the right career
+                                        //     path can be daunting. That's why we offer a wealth of resources to
+                                        //     empower you on your journey. From resume writing tips and
+                                        //     interview techniques to networking advice and skill-building
+                                        //     strategies, our expert contributors share their knowledge and
+                                        //     expertise to equip you with the tools you need to succeed.
+                                        // </p>
                                     `}} />
                                     
                                     {blogPost.blog_images && blogPost.blog_images.length > 1 && (
@@ -445,7 +451,7 @@ function BlogDetailsMain() {
                                         />
                                     )}
                                     
-                                    {blogPost.services && blogPost.services.length > 0 ? (
+                                    {/* {blogPost.services && blogPost.services.length > 0 ? (
                                         <>
                                             <h6 className="mb-4 mt-4">Hotel Service</h6>
                                             <ul className="service-list list-unstyled">
@@ -487,15 +493,15 @@ function BlogDetailsMain() {
                                                 </li>
                                             </ul>
                                         </>
-                                    )}
+                                    )} */}
                                     
-                                    <h6 className="mb-4 mt-4">
+                                    {/* <h6 className="mb-4 mt-4">
                                         Real Guest Stories: Unforgettable Stays at Bokinn
-                                    </h6>
+                                    </h6> */}
                                     
-                                    <p className="description">
+                                    {/* <p className="description">
                                         {blogPost.subtitle || "Welcome to Career Compass, your ultimate destination for career advice, job search strategies, and professional development insights. Whether you're a recent graduate, seasoned professional, or someone considering a career change, our blog is your trusted guide to help you navigate the ever-evolving landscape of the job market."}
-                                    </p>
+                                    </p> */}
                                     
                                     {blogPost.quote && (
                                         <blockquote className="rts__blockquote">
@@ -505,9 +511,9 @@ function BlogDetailsMain() {
                                         </blockquote>
                                     )}
                                     
-                                    <p className="description">
+                                    {/* <p className="description">
                                         {blogPost.conclusion || "At Career Compass, we understand that finding the right career path can be daunting. That's why we offer a wealth of resources to empower you on your journey. From resume writing tips and interview techniques to networking advice and skill-building strategies, our expert contributors share their knowledge and expertise to equip you with the tools you need to succeed."}
-                                    </p>
+                                    </p> */}
                                     
                                     {/* <h6 className="mb-30">Tags</h6>
                                     <div className="tag__list mb-30">
@@ -523,25 +529,40 @@ function BlogDetailsMain() {
                                         </div>
                                     </div> */}
                                     
-                                    <div className="share mb-30">
-                                        <h6 className="mb-20">Share</h6>
-                                        <div className="social__link">
-                                            <Link to="#">
-                                                <i className="flaticon-linkedin" />
-                                            </Link>
-                                            <Link to="#">
-                                                <i className="flaticon-twitter-alt-circle" />
-                                            </Link>
-                                            <Link to="#">
-                                                <i className="flaticon-whatsapp" />
-                                            </Link>
-                                            <Link to="#">
-                                                <i className="flaticon-facebook-messenger" />
-                                            </Link>
-                                        </div>
-                                    </div>
+                                    <div className="social__link d-flex gap-3">
+                                    <span>Share</span>
+                            <a
+                                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(blogUrl)}&title=${encodeURIComponent(blogTitle)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="flaticon-linkedin" />
+                            </a>
+                            <a
+                                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl)}&text=${encodeURIComponent(blogTitle)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="flaticon-twitter-alt-circle" />
+                            </a>
+                            <a
+                                href={`https://wa.me/?text=${encodeURIComponent(`${blogTitle} - ${blogUrl}`)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="flaticon-whatsapp" />
+                            </a>
+                            <a
+                                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="flaticon-facebook-messenger" />
+                            </a>
+                        </div>
+
                                     
-                                    <h6 className="mb-30">Comment</h6>
+                                    {/* <h6 className="mb-30">Comment</h6>
                                     <div className="comment__list">
                                         {blogPost.comments && blogPost.comments.length > 0 ? 
                                             blogPost.comments.map((comment, index) => (
@@ -631,10 +652,10 @@ function BlogDetailsMain() {
                                                 </div>
                                             </>
                                         }
-                                    </div>
+                                    </div> */}
                                     
                                     {/* comment form */}
-                                    <div className="comment__form mt-40">
+                                    {/* <div className="comment__form mt-40">
                                         <h6 className="mb-3">Leave a Comment</h6>
                                         <form action="#" className="comment__form__content">
                                             <div className="input-group">
@@ -676,7 +697,7 @@ function BlogDetailsMain() {
                                                 <span>Submit Comment</span>
                                             </button>
                                         </form>
-                                    </div>
+                                    </div> */}
                                     {/* comment form end */}
                                 </div>
                             </div>

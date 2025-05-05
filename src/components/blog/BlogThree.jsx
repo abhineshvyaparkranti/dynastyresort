@@ -184,28 +184,47 @@ function BlogThree() {
   const [posts, setPosts] = useState([]);
   const [visiblePosts, setVisiblePosts] = useState(4);
   const [loading, setLoading] = useState(true);
+ const [categories, setCategories] = useState([]); // Will hold { name, count }
+
   const postsPerLoad = 1;
   const navigate = useNavigate();
 
   useEffect(() => {
-    getBlog()
-      .then((data) => {
-        if (data.status && data.blogs) {
-          const parsed = data.blogs.map(blog => ({
-            ...blog,
-            blog_images: JSON.parse(blog.blog_images || '[]'),
-          }));
-          setPosts(parsed);
-          console.log("blog main page data===============>", parsed);
-        } else {
-          console.warn("Unexpected blog API response:", data);
-        }
-      })
-      .catch((err) => {
-        console.error("Error fetching blog data:", err);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  getBlog()
+    .then((data) => {
+      if (data.status && data.blogs) {
+        const parsed = data.blogs.map(blog => ({
+          ...blog,
+          blog_images: JSON.parse(blog.blog_images || '[]'),
+        }));
+        setPosts(parsed);
+        console.log("data blog all part=========>", parsed);
+
+        // Count blogs per category
+        const categoryMap = {};
+        parsed.forEach(blog => {
+          const cat = blog.blog_category?.trim();
+          if (cat) {
+            categoryMap[cat] = (categoryMap[cat] || 0) + 1;
+          }
+        });
+
+        const categoryArray = Object.entries(categoryMap).map(([name, count]) => ({
+          name,
+          count
+        }));
+
+        setCategories(categoryArray);
+      } else {
+        console.warn("Unexpected blog API response:", data);
+      }
+    })
+    .catch((err) => {
+      console.error("Error fetching blog data:", err);
+    })
+    .finally(() => setLoading(false));
+}, []);
+
 
   const handleLoadMore = () => {
     setVisiblePosts((prev) => prev + postsPerLoad);
@@ -248,23 +267,23 @@ function BlogThree() {
 
           <div className="col-xl-4 col-lg-5 sticky-item">
             <div className="blog__sidebar__section sticky-item">
-              <h6 className="mb-3">Search</h6>
+              {/* <h6 className="mb-3">Search</h6>
               <form action="#" className="search__form">
                 <input type="text" placeholder="Search" />
                 <i className="flaticon-search-1" />
-              </form>
+              </form> */}
               <h6 className="mb-4">Category</h6>
-              <div className="search__item__list">
-                {["Adventure Stays", "Wellness & Relaxation", "Cultural Stays", "Historic Hotels", "Pet-Friendly Hotels"].map((cat, i) => (
-                  <div key={i} className="d-flex align-items-center justify-content-between list">
-                    <div className="d-flex gap-2 align-items-center checkbox is__small">
-                      <input type="checkbox" id={`cat-${i}`} />
-                      <label htmlFor={`cat-${i}`}>{cat}</label>
-                    </div>
-                    <span>({Math.floor(Math.random() * 100) + 50})</span>
+            <div className="search__item__list">
+              {categories.map((cat, i) => (
+                <div key={i} className="d-flex align-items-center justify-content-between list">
+                  <div className="d-flex gap-2 align-items-center">
+                    <label>{cat.name}</label>
                   </div>
-                ))}
-              </div>
+                  <span>({cat.count})</span>
+                </div>
+              ))}
+            </div>
+
 
               <h6 className="mb-4">Latest Post</h6>
               <div className="latest__post mb-30">
@@ -290,14 +309,14 @@ function BlogThree() {
                 ))}
               </div>
 
-              <h6 className="mb-4">Tags</h6>
+              {/* <h6 className="mb-4">Tags</h6>
               <div className="tag__list">
                 <div className="tags__list">
                   {["Hotel Stay", "Travel Blog", "Guest Experience", "Hotel Guide", "Hotel Review"].map((tag, i) => (
                     <Link key={i} to="#">{tag}</Link>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

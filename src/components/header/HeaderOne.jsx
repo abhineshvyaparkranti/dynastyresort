@@ -246,7 +246,7 @@ function HeaderOne() {
                                             </li> */}
 
                                              <li className="navigation__menu--item has-child has-arrow">
-                                                <Link to="/event" className="navigation__menu--item__link">
+                                                <Link to="#" className="navigation__menu--item__link">
                                                     Mice
                                                 </Link>
                                                 <ul className="submenu sub__style" role="menu">
@@ -347,11 +347,20 @@ function HeaderOne() {
                             </div>
                             <div className="main__logo">
                                 <Link to="/home-2">
-                                    <img
+                                    {/* <img
                                         className="logo__class"
-                                        src="/assets/images/logo/logo.svg"
+                                        src="/assets/images/logo/dynastylogo.png"
                                         alt="moonlit"
+                                    /> */}
+
+                                     <img
+                                    className="logo__class"
+                                    src="/assets/images/logo/dynastylogo.png"
+                                    alt="moonlit"
+                                    style={{ height: '100px', padding: '10px', objectFit: 'contain' }}
                                     />
+
+
                                 </Link>
                             </div>
                             <div className="main__right">

@@ -22,7 +22,7 @@ function EventTwo() {
                             </div>
                             <div className="single__event__meta">
                                 <h2 className="wow fadeInUp mb-20">
-                                    As Night of Hope: Our Charity Gala Room.
+                                    A Night of Hope: Our Charity Gala Room.
                                 </h2>
                                 <p className="font-sm wow fadeInUp">
                                     At our Fitness &amp; Yoga Services, we are dedicated to helping
