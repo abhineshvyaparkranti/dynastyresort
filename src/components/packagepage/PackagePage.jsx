@@ -349,10 +349,12 @@ import {
   FaMountain, FaUmbrellaBeach, FaShuttleVan
 } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import './PackagePage.css'; // Define your animations and CSS variables here
 import { getPackages } from '../../api/getPackages';
+import { useNavigate } from 'react-router-dom';
 
 const PackagePage = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -361,6 +363,12 @@ const PackagePage = () => {
   const [showModal, setShowModal] = useState(false);
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
+
+   const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/contact');
+  };
 
   // Function to get icon component based on feature text
   const getFeatureIcon = (featureText) => {
@@ -612,9 +620,15 @@ const PackagePage = () => {
                   </Card.Body>
                   <Card.Footer className="bg-white border-0 pt-0">
                     <div className="d-grid gap-2">
-                      <Button style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}>
+                      {/* <Button style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}>
                         Book Now
-                      </Button>
+                      </Button> */}
+                       <Link to='https://www.asiatech.in/booking_engine/index3.php?token=MTY='
+                        className="theme-btn btn-style fill no-border search__btn wow fadeInUp text-center"
+                        data-wow-delay=".6s"
+                    >
+                        <span>Book Your Packages</span>
+                    </Link>
                       {/* <Button variant="outline-secondary">
                         Learn More
                       </Button> */}
@@ -631,7 +645,13 @@ const PackagePage = () => {
             <div className="cta-box bg-light p-5 rounded shadow-sm">
               <h3 className="mb-3">Need Help Finding the Perfect Package?</h3>
               <p className="mb-4">Our resort specialists can help customize a package to meet your specific needs and preferences.</p>
-              <Button size="lg" style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}>Contact Our Team</Button>
+              <Button 
+      size="lg" 
+      onClick={handleContactClick}
+      style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}
+    >
+      Contact Our Team
+    </Button>
             </div>
           </Col>
         </Row>
@@ -722,9 +742,15 @@ const PackagePage = () => {
             <Button variant="secondary" onClick={handleCloseModal}>
               Close
             </Button>
-            <Button style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}>
+            {/* <Button style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}>
               Book Now
-            </Button>
+            </Button> */}
+             <Link to='https://www.asiatech.in/booking_engine/index3.php?token=MTY='
+                className="theme-btn btn-style fill no-border search__btn wow fadeInUp text-center"
+                data-wow-delay=".6s"
+            >
+                <span>Book Your Packages</span>
+            </Link>
           </Modal.Footer>
         </Modal>
       </Container>

@@ -126,7 +126,7 @@ useEffect(() => {
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
                             <div className="room__details__top">
-                                <span className="h2 price">₹{roomData.price}</span>
+                                {/* <span className="h2 price">₹{roomData.price}</span> */}
                                 <h1>{roomData.title}</h1>
                                 <div className="room__meta">
                                     <span>
@@ -378,7 +378,7 @@ useEffect(() => {
                                             </div>
                                         </div>
                                         
-                                        <h5 className="p-0 mt-20">Extra Services</h5>
+                                        {/* <h5 className="p-0 mt-20">Extra Services</h5>
                                         
                                         <div className="query__input checkbox wow fadeInUp">
                                             <input type="checkbox" name="clean" id="clean" />
@@ -407,9 +407,9 @@ useEffect(() => {
                                         <div className="total__price">
                                             <span className="total h6 mb-0">Total Price</span>
                                             <span className="price h6 m-0">$82</span>
-                                        </div>
+                                        </div> */}
                                         
-                                        <a href="/cart"
+                                        <a href="https://www.asiatech.in/booking_engine/index3.php?token=MTY="
                                             className="theme-btn btn-style fill no-border search__btn wow fadeInUp"
                                             data-wow-delay=".6s"
                                         >

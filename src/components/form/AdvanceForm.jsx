@@ -71,9 +71,15 @@ function AdvanceForm() {
                                 </div>
                             </div>
                             {/* Submit Button */}
-                            <button className="theme-btn btn-style fill no-border search__btn" type="submit">
+                            {/* <button className="theme-btn btn-style fill no-border search__btn" type="submit">
                                 <span>Check Now</span>
-                            </button>
+                            </button> */}
+                             <a href="https://www.asiatech.in/booking_engine/index3.php?token=MTY="
+                                className="theme-btn btn-style fill no-border search__btn wow fadeInUp"
+                                data-wow-delay=".6s"
+                            >
+                                <span>Check Now</span>
+                            </a>
                         </div>
                     </form>
                 </div>

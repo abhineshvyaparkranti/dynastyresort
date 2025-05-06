@@ -1,9 +1,13 @@
-   import React, { useState, useEffect } from 'react';
-  import WOW from 'wowjs';
-  import Skeleton from 'react-loading-skeleton';
-  import 'react-loading-skeleton/dist/skeleton.css';
-  import { getBuiness } from '../../api/getBuiness';
- import { getWedding } from '../../api/getWedding';
+import React, { useState, useEffect } from 'react';
+import WOW from 'wowjs';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { getBuiness } from '../../api/getBuiness';
+import { getWedding } from '../../api/getWedding';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
  
  
  
@@ -53,18 +57,44 @@
                       <div className="row">
                           {/* First event section */}
                           <div className="single__event if__is__default">
-                              <div className="single__event__thumb">
-                                  {loading ? (
-                                      <Skeleton height={535} width={605} />
-                                  ) : (
-                                      <img
-                                          src={images[0] || "/assets/images/pages/event/1.webp"}
-                                          width={605}
-                                          height={535}
-                                          alt={wedding?.title || "Event image"}
-                                      />
-                                  )}
-                              </div>
+                               <div className="single__event__thumb" style={{ width: '100%' }}>
+                                                          {loading ? (
+                                                              <Skeleton height={535} width={605} />
+                                                          ) : (
+                                                              <Swiper
+                                                              modules={[Autoplay]}
+                                                              autoplay={{ delay: 3000, disableOnInteraction: false }}
+                                                              loop={true}
+                                                              spaceBetween={0}
+                                                              slidesPerView={1}
+                                                              style={{ width: '100%' }}
+                                                              >
+                                                              {(images.length > 0 ? images : ["/assets/images/pages/event/1.webp"]).map((img, index) => (
+                                                                  <SwiperSlide key={index}>
+                                                                  <div
+                                                                      style={{
+                                                                      width: '100%',
+                                                                      aspectRatio: '12 / 9',
+                                                                      overflow: 'hidden',
+                                                                      borderRadius: '8px'
+                                                                      }}
+                                                                  >
+                                                                      <img
+                                                                      src={img}
+                                                                      alt={`Event image ${index + 1}`}
+                                                                      className="img-fluid"
+                                                                      style={{
+                                                                          width: '100%',
+                                                                          height: '100%',
+                                                                          objectFit: 'cover'
+                                                                      }}
+                                                                      />
+                                                                  </div>
+                                                                  </SwiperSlide>
+                                                              ))}
+                                                              </Swiper>
+                                                          )}
+                                                          </div>
                               <div className="single__event__meta">
                                   {loading ? (
                                       <>
@@ -120,8 +150,8 @@
                           </div>
                           
                           {/* Second event section */}
-                          <div className="single__event if__is__reverse">
-                              <div className="single__event__thumb">
+                          <div className="single__event if__is__reverse flex-column">
+                              {/* <div className="single__event__thumb">
                                   {loading ? (
                                       <Skeleton height={535} width={605} />
                                   ) : (
@@ -132,7 +162,7 @@
                                           alt={wedding?.title || "Event image"}
                                       />
                                   )}
-                              </div>
+                              </div> */}
                               <div className="single__event__meta">
                                   {loading ? (
                                       <>
@@ -141,9 +171,9 @@
                                       </>
                                   ) : (
                                       <>
-                                          <h2 className="wow fadeInUp mb-20">
+                                          {/* <h2 className="wow fadeInUp mb-20">
                                               {`${wedding?.title || ""} Festival Event`}
-                                          </h2>
+                                          </h2> */}
                                           <div 
                                               className="font-sm wow fadeInUp"
                                               dangerouslySetInnerHTML={createMarkup(wedding?.description || "")}

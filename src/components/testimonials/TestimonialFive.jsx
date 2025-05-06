@@ -1,13 +1,13 @@
  import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
-import { Navigation } from 'swiper/modules';
+// import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
- 
+import { Navigation, Autoplay } from 'swiper/modules';
 import { getReview } from '../../api/getReview';
  
 
@@ -68,12 +68,16 @@ function TestimonialFive() {
           <div className="col-lg-7">
             <Swiper
               className="testimonial__slider position-relative overflow-hidden"
-              modules={[Navigation]}
+              modules={[Navigation, Autoplay]} // include Autoplay module
               direction="horizontal"
               slidesPerView={1}
               spaceBetween={0}
               loop={true}
               centeredSlides={true}
+              autoplay={{
+                delay: 4000,       // 4 seconds between slides
+                disableOnInteraction: false, // keeps autoplay running after user interaction
+              }}
               navigation={{
                 nextEl: ".button-next",
                 prevEl: ".button-prev",
@@ -81,8 +85,9 @@ function TestimonialFive() {
               speed={1000}
               effect="slide"
             >
+
              {loading
-  ? Array.from({ length: 3 }).map((_, idx) => (
+      ? Array.from({ length: 3 }).map((_, idx) => (
       <SwiperSlide key={idx}>
         <div className="testimonial__item__content">
           <div className="testimonial__content">

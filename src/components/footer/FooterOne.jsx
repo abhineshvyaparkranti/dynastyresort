@@ -282,12 +282,13 @@ function FooterOne() {
                 <span className="widget__title">Quick Links</span>
                 <ul>
                   <li><Link to="/activities">Activities</Link></li>
-                  <li><Link to="/resturant">Restaurant</Link></li>
+                  {/* <li><Link to="/resturant">Restaurant</Link></li> */}
                   <li><Link to="/blog">Blog</Link></li>
                   <li><Link to="/contact">Contact Us</Link></li>
                   <li><Link to="/termscondition">Terms & Conditions</Link></li>
                   <li><Link to="/privacy">Privacy Policy</Link></li>
                   <li><Link to="/refund">Refund Cancellation Policy</Link></li>
+                  <li><Link to="/service">Our Service</Link></li>
                 </ul>
               </div>
 
@@ -300,7 +301,7 @@ function FooterOne() {
                   <li>Room Service</li>
                   <li>Free Wi-Fi</li>
                   <li>Concierge Service</li>
-                  <li><Link to="/service">Our Service</Link></li>
+                  {/* <li><Link to="/service">Our Service</Link></li> */}
                 </ul>
               </div>
 

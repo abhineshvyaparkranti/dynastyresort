@@ -1599,6 +1599,8 @@ function RoomDetails() {
   category
 } = roomData;
 
+ 
+
 
     return (
         
@@ -1613,7 +1615,7 @@ function RoomDetails() {
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
                             <div className="room__details__top">
-                                <span className="h2 price">₹{price}</span>
+                                {/* <span className="h2 price">₹{price}</span> */}
                                 <h1>{title}</h1>
                                 <div className="room__meta">
                                     <span>
@@ -1893,43 +1895,38 @@ function RoomDetails() {
                                                 </div>
                                             </div>
                                             {/* single input end */}
-                                            <h5 className="p-0 mt-20">Extra Services</h5>
-                                            {/* checkbox item */}
+                                            {/* <h5 className="p-0 mt-20">Extra Services</h5>
+                                             
                                             <div className="query__input checkbox wow fadeInUp">
                                                 <input type="checkbox" name="clean" id="clean" />
                                                 <label htmlFor="clean">Room Clean</label>
                                                 <span>$12 / Night</span>
                                             </div>
-                                            {/* checkbox item end */}
-                                            {/* checkbox item */}
+                                             
                                             <div className="query__input checkbox wow fadeInUp">
                                                 <input type="checkbox" name="parking" id="parking" />
                                                 <label htmlFor="parking">Parking</label>
                                                 <span>Free</span>
                                             </div>
-                                            {/* checkbox item end */}
-                                            {/* checkbox item */}
+                                            
                                             <div className="query__input checkbox wow fadeInUp">
                                                 <input type="checkbox" name="transport" id="transport" />
                                                 <label htmlFor="transport">Airport transport</label>
                                                 <span>$30 / Night</span>
                                             </div>
-                                            {/* checkbox item end */}
-                                            {/* checkbox item */}
+                                             
                                             <div className="query__input checkbox wow fadeInUp">
                                                 <input type="checkbox" name="pet" id="pet" />
                                                 <label htmlFor="pet">Pet-Friendly</label>
                                                 <span>$40 / Night</span>
                                             </div>
-                                            {/* checkbox item end */}
-                                            {/* calculation */}
+                                             
                                             <div className="total__price">
                                                 <span className="total h6 mb-0">Total Price</span>
                                                 <span className="price h6 m-0">$82</span>
-                                            </div>
-                                            {/* calculation end */}
-                                            {/* submit button */}
-                                            <Link to='/cart'
+                                            </div> */}
+                                            
+                                            <Link to='https://www.asiatech.in/booking_engine/index3.php?token=MTY='
                                                 className="theme-btn btn-style fill no-border search__btn wow fadeInUp"
                                                 data-wow-delay=".6s"
                                             >

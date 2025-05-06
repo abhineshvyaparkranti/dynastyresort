@@ -362,6 +362,7 @@ import './GuestExperience.css'; // We'll create this for custom animations
 import { getVedioGuest } from '../../api/getVedioGuest';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Link } from 'react-router-dom';
 
 const GuestExperience = () => {
   const [activeReview, setActiveReview] = useState(0);
@@ -534,31 +535,35 @@ const GuestExperience = () => {
   };
 
   // Extract video ID from Pexels URL
-  const extractPexelsVideoId = (url) => {
-    if (!url) return null;
-    
-    // Try to extract the video ID from URLs like: https://www.pexels.com/video/a-woman-working-on-an-electronic-tablet-2675511
-    const regex = /\/video\/.*?-(\d+)$/;
-    const match = url.match(regex);
-    
-    if (match && match[1]) {
-      return match[1];
-    }
-    
-    return null;
-  };
+   const getEmbedUrl = (url) => {
+  if (!url) return null;
 
-  // Convert Pexels video URL to embed URL
-  const getPexelsEmbedUrl = (pexelsUrl) => {
-    const videoId = extractPexelsVideoId(pexelsUrl);
-    
-    if (videoId) {
-      return `https://player.vimeo.com/video/${videoId}`;
+  try {
+    const parsed = new URL(url);
+
+    // YouTube
+    if (parsed.hostname.includes('youtube.com') && parsed.searchParams.get('v')) {
+      return `https://www.youtube.com/embed/${parsed.searchParams.get('v')}`;
     }
-    
-    // If we can't extract the ID, return a fallback
+
+    if (parsed.hostname === 'youtu.be') {
+      return `https://www.youtube.com/embed/${parsed.pathname.slice(1)}`;
+    }
+
+    // Vimeo
+    if (parsed.hostname.includes('vimeo.com')) {
+      const vimeoId = parsed.pathname.split('/').pop();
+      return `https://player.vimeo.com/video/${vimeoId}`;
+    }
+
+  } catch (err) {
+    console.error("Invalid URL format:", url);
     return null;
-  };
+  }
+
+  return null;
+};
+
 
   // Skeleton component for feature icons
   const FeatureIconSkeleton = () => (
@@ -661,7 +666,9 @@ const GuestExperience = () => {
                   data-animation-id="video"
                 >
                   {videos.map((video, idx) => {
-                    const embedUrl = getPexelsEmbedUrl(video.videoLink);
+                    // const embedUrl = getPexelsEmbedUrl(video.videoLink);
+                    const embedUrl = getEmbedUrl(video.videoLink);
+
                     
                     return embedUrl ? (
                       <iframe 
@@ -755,7 +762,13 @@ const GuestExperience = () => {
               >
                 <h3 className="mb-3">Ready to Experience Luxury?</h3>
                 <p className="mb-4">Book your stay now and discover why our guests keep coming back.</p>
-                <Button variant="light" className="btn-lg px-4">Book Now</Button>
+                 <Link to='https://www.asiatech.in/booking_engine/index3.php?token=MTY='
+            className="theme-btn btn-style fill no-border search__btn wow fadeInUp text-cen"
+            data-wow-delay=".6s"
+        >
+            <span>Book Your Room</span>
+        </Link>
+
               </div>
             )}
           </Col>

@@ -707,7 +707,7 @@ const Wedding = () => {
       {/* Venue Highlights */}
       <section id="section-venues" className="py-5 bg-light">
         <Container>
-          <h2 className={`content__title h2 lh-1 text-center ${isVisible.venues ? 'animate__animated animate__fadeInDown' : ''}`}>Perfect Venues for Every Style</h2>
+          <h2 className={`content__title h2 lh-1 text-center ${isVisible.venues ? 'animate__animated animate__fadeInDown' : ''}`}>Your Perfect Wedding Venue Awaits</h2>
           <Row className="g-4">
             {loading ? (
               // Loading state for venues
@@ -897,7 +897,7 @@ const Wedding = () => {
         position: 'relative'
       }}>
         <div className="overlay position-absolute w-100 h-100 top-0 start-0" style={{ 
-          backgroundColor: 'rgba(0,0,0,0.6)'
+          backgroundColor: 'rgba(187, 183, 183, 0.6)'
         }}></div>
         <Container className="position-relative">
           <Row className="justify-content-center text-center">
@@ -906,12 +906,16 @@ const Wedding = () => {
               <p className="lead mb-4">
                 Our wedding specialists are ready to help you create memories that will last a lifetime
               </p>
-              <Button variant="light" size="lg" className="me-3 mb-2 mb-md-0 btn-custom-light">
-                Download Wedding Brochure
-              </Button>
-              <Button variant="outline-light" size="lg">
+            <a href="/assets/pdf/privacy-policy.pdf" download target="_blank" rel="noopener noreferrer">
+            <Button variant="light" size="lg" className="me-3 mb-2 mb-md-0 btn-custom-light">
+              Download Wedding Brochure
+            </Button>
+          </a>
+
+
+              {/* <Button variant="outline-light" size="lg" >
                 Schedule a Tour
-              </Button>
+              </Button> */}
             </Col>
           </Row>
         </Container>

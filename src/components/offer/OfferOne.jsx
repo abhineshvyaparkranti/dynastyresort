@@ -245,8 +245,8 @@ function OfferOne() {
                         ))}
                       </ul>
                       <h4 className="offer__price mb-2">
-                        <del style={{ marginRight: '10px' }}>${offer.price}</del>
-                        ${offer.offer_price}
+                        <del style={{ marginRight: '10px' }}>{offer.price}</del>
+                        {offer.offer_price}
                       </h4>
                       {/* <button
                         className="btn btn-primary mt-2"

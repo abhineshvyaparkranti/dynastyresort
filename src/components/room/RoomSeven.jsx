@@ -312,6 +312,7 @@ function RoomSeven() {
             .then(data => {
                 if (data && data.rooms) {
                     setRooms(data.rooms);
+                    console.log("room data ==============>", data.rooms);
                 }
                 setLoading(false);
             })
@@ -462,9 +463,15 @@ function RoomSeven() {
                                         </div>
 
                                         {/* Search Button */}
-                                        <button className="theme-btn btn-style fill no-border search__btn wow fadeInUp" data-wow-delay=".6s">
-                                            <span><i className="flaticon-search-1" /> Search</span>
-                                        </button>
+                                        {/* <button className="theme-btn btn-style fill no-border search__btn wow fadeInUp" data-wow-delay=".6s">
+                                            <span>  Book Now</span>
+                                        </button> */}
+                                        <Link to='https://www.asiatech.in/booking_engine/index3.php?token=MTY='
+                                        className="theme-btn btn-style fill no-border search__btn wow fadeInUp"
+                                        data-wow-delay=".6s"
+                                    >
+                                        <span>Book Your Room</span>
+                                    </Link>
 
                                     </div>
                                 </form>

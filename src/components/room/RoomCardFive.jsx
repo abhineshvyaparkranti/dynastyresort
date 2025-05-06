@@ -41,13 +41,15 @@ function RoomCardFive( {roomID} ) {
         title,
         person_allow,
         size,
-        price
+        price,
+        category,
+
     } = room;
 
     return (
         <div className="room__card">
             <div className="room__card__top">
-                <div className="room__card__image">
+                <div className="room__card__image position-relative">
                     {/* <Link to={`/room2/${roomID}`}> */}
                         <img
                             src={banner_image}
@@ -55,8 +57,44 @@ function RoomCardFive( {roomID} ) {
                             height={310}
                             alt="room"
                         />
+                         <button 
+                            className="btn btn-sm position-absolute top-0 start-0 m-2 px-3 py-1"
+                            style={{
+                            backgroundColor: 'var(--btn-1)', 
+                            color: '#fff', 
+                            border: 'none', 
+                            borderRadius: '20px',
+                            fontSize: '0.85rem',
+                            // paddingTop: '10px',
+                            }}
+                        >
+                            {category}
+                        </button>
                     {/* </Link> */}
                 </div>
+                {/* <div className="room__card__image position-relative">
+  <img
+    src={banner_image}
+    width={420}
+    height={310}
+    alt="room"
+    className="img-fluid rounded"
+  />
+  
+  <button 
+    className="btn btn-sm position-absolute top-0 start-0 m-2 px-3 py-1"
+    style={{
+      backgroundColor: 'var(--btn-1)', 
+      color: '#fff', 
+      border: 'none', 
+      borderRadius: '20px',
+      fontSize: '0.85rem'
+    }}
+  >
+    {category}
+  </button>
+</div> */}
+
             </div>
             <div className="room__card__meta">
                 {/* <Link to={`/room2/${roomID}`} className="room__card__title h5"> 
@@ -75,9 +113,9 @@ function RoomCardFive( {roomID} ) {
                     </span>
                 </div>
                 <div className="room__price__tag">
-                    <span className="h6 d-block">
+                    {/* <span className="h6 d-block">
                         {price ? `₹${price}` : 'Price on request'}
-                    </span>
+                    </span> */}
                 </div>
             </div>
         </div>

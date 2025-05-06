@@ -9,6 +9,7 @@ import GalleryFour from '../components/gallery/GalleryFour'
 import GalleryThree from '../components/gallery/GalleryThree'
 import GalleryTwo from '../components/gallery/GalleryTwo'
 import GalleryOne from '../components/gallery/GalleryOne'
+import VideoTwo from '../components/videos/VideoTwo'
 
 function Gallery() {
   return (
@@ -20,7 +21,7 @@ function Gallery() {
             description="where every image tells a story of luxury, comfort, and unparalleled hospitality"
         />
         <GalleryTwo />
-        <VideoThree />
+        <VideoTwo />
         <FooterOne />
     </div>
   )

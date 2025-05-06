@@ -69,29 +69,59 @@ function FacilitiesTwo() {
             );
         }
 
+       const buttonStyle = {
+  background: 'white',
+  color: 'black',
+  border: '1px solid var(--btn-1)',
+};
+
+const activeButtonStyle = {
+  background: 'var(--btn-1)',
+  color: 'white',
+  border: '1px solid var(--btn-1)',
+};
+
         return (
             <nav aria-label="Facilities pagination" className="mt-4">
-                <ul className="pagination justify-content-center">
-                    <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-                        <button 
-                            className="page-link" 
-                            onClick={() => handlePageChange(currentPage - 1)}
-                            disabled={currentPage === 1}
-                        >
-                            Previous
-                        </button>
-                    </li>
-                    {pages}
-                    <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
-                        <button 
-                            className="page-link" 
-                            onClick={() => handlePageChange(currentPage + 1)}
-                            disabled={currentPage === totalPages}
-                        >
-                            Next
-                        </button>
-                    </li>
-                </ul>
+              <ul className="pagination justify-content-center">
+  <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+    <button
+      className="page-link"
+      onClick={() => handlePageChange(currentPage - 1)}
+      disabled={currentPage === 1}
+      style={buttonStyle}
+    >
+      Previous
+    </button>
+  </li>
+  {Array.from({ length: totalPages }, (_, i) => {
+    const pageNumber = i + 1;
+    const isActive = currentPage === pageNumber;
+
+    return (
+      <li key={i} className={`page-item ${isActive ? 'active' : ''}`}>
+        <button
+          className="page-link"
+          onClick={() => handlePageChange(pageNumber)}
+          style={isActive ? activeButtonStyle : buttonStyle}
+        >
+          {pageNumber}
+        </button>
+      </li>
+    );
+  })}
+
+  <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+    <button
+      className="page-link"
+      onClick={() => handlePageChange(currentPage + 1)}
+      disabled={currentPage === totalPages}
+      style={buttonStyle}
+    >
+      Next
+    </button>
+  </li>
+</ul>
             </nav>
         );
     };
