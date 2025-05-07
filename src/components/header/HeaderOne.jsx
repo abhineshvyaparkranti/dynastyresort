@@ -394,7 +394,7 @@ function HeaderOne() {
                                 handleShow();
                                 }}
                             >
-                                <span>Book Now</span>
+                                <span>Enquiry Now</span>
                             </Link>
 
                             {/* Booking Modal */}

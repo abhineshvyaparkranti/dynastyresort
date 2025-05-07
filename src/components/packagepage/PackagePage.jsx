@@ -355,6 +355,8 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import './PackagePage.css'; // Define your animations and CSS variables here
 import { getPackages } from '../../api/getPackages';
 import { useNavigate } from 'react-router-dom';
+import { FaBed, FaUserFriends, FaDoorOpen } from 'react-icons/fa';
+import { FaHome } from 'react-icons/fa';
 
 const PackagePage = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -597,9 +599,15 @@ const PackagePage = () => {
                   <Card.Body>
                     <Card.Title className="mb-1 fs-4 fw-bold">{pkg.name}</Card.Title>
                     <div className="mb-3 d-flex align-items-center">
-                      <span className="price fs-3 fw-bold text-primary me-2">{pkg.price}</span>
-                      <span className="text-muted">{pkg.priceDetails}</span>
+                      {/* <span className="price fs-3 fw-bold text-primary me-2">{pkg.price}</span> */}
+                       <span className="offer__price mb-2">
+                        <del style={{ marginRight: '10px' }}>{pkg.price}</del>
+                        {pkg.discount}
+                      </span>
+                      {/* <span className="text-muted">{pkg.priceDetails}</span> */}
                     </div>
+                     <FaHome style={{ color: 'brown', fontSize: '24px' }} className="ml-4 " />
+                    <span style={{paddingLeft: '5px'}}>{pkg.priceDetails} Room</span>
                     <Card.Text>{pkg.description.substring(0, 100)}...</Card.Text>
                     <p className="text-muted small mb-3">{pkg.duration}</p>
                     <hr />
@@ -683,7 +691,11 @@ const PackagePage = () => {
                   <div className="row mb-4">
                     <div className="col-md-6">
                       <div className="price-box p-3 bg-light rounded">
-                        <h4 className="mb-2 text-primary">{selectedPackage.price}</h4>
+                        {/* <h4 className="mb-2 text-primary">{selectedPackage.price}</h4> */}
+                        <span className="offer__price mb-2">
+                        <del style={{ marginRight: '10px' }}>{selectedPackage.price}</del>
+                        {selectedPackage.discount}
+                      </span>
                         <p className="mb-1">{selectedPackage.priceDetails}</p>
                         <p className="mb-0"><strong>Duration:</strong> {selectedPackage.duration}</p>
                       </div>

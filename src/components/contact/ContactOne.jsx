@@ -314,7 +314,7 @@ function ContactOne() {
         <div className="container pt-120">
           <div className="row g-30 align-items-center">
             <div className="col-lg-6">
-              <iframe
+              {/* <iframe
                 className="w-100"
                 height={560}
                 src="https://www.google.com/maps/embed?pb=!1m18..."
@@ -322,7 +322,22 @@ function ContactOne() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Map showing the location of Dynasty Resort"
-              />
+              /> */}
+      <iframe
+  className="responsive-map"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.4268809273075!2d79.42638431512289!3d29.36990918142796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390a75c4e541cbcb%3A0xf93eec3e6b29389b!2sDynasty%20Resort!5e0!3m2!1sen!2sin!4v1682755042804!5m2!1sen!2sin"
+  width="100%"
+  height="560"
+  style={{ border: 0 }}
+  allowFullScreen=""
+  loading="lazy"
+  title="Dynasty Resort Address Map"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
+
+
+  
+
             </div>
             <div className="col-lg-6">
               <div className="contact__info">

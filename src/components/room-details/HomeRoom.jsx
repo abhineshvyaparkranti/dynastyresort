@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { getSimilarRoom } from '../../api/getSimilarRoom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Link } from 'react-router-dom';
 
 function HomeRoom() {
     const [rooms, setRooms] = useState([]);
@@ -107,9 +108,22 @@ function HomeRoom() {
                     </div>
                 )}
 
+               <div className="text-center mt-5">
+       <Link
+          to="/room-two"
+          className="theme-btn btn-style sm-btn fill"
+        >
+          View All Rooms
+        </Link>
+      </div>
                 </div>
+
+                 {/* View All Rooms Button */}
+      
             </div>
             {/* similar room area end */}
+
+            
         </>
     );
 }
