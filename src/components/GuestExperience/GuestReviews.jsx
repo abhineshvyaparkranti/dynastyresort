@@ -68,7 +68,25 @@ export default function GuestVideoReviews() {
               className={`col-12 col-sm-6 col-lg-4 animate__animated ${
                 animatedItems.includes(review.id) ? 'animate__fadeInUp' : ''
               }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+              // style={{ animationDelay: `${index * 0.2}s` }}
+                style={{
+                         
+                        objectFit: 'cover',
+                        objectPosition: 'top',
+                        
+                        transition: 'all 0.4s ease',
+                    
+                        overflow: 'hidden',
+                        cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.03)';
+                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
             >
               <VideoReviewCard review={review} />
             </div>

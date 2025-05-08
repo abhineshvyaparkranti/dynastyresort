@@ -417,11 +417,11 @@ const PackagePage = () => {
       id: pkg.id,
       name: pkg.title,
       category: pkg.category.toLowerCase().replace(' ', ''),
-      price: `${pkg.price}`,
+      price: `Rs ${pkg.price}`,
       priceDetails: pkg.allowance_details,
       description: pkg.description ? stripHtmlTags(pkg.description) : "No description available",
       image: pkg.image || "/api/placeholder/600/400",
-      discount: pkg.offer_price ? `${pkg.offer_price} OFF` : "",
+      discount: pkg.offer_price ? `Rs ${pkg.offer_price} ` : "",
       features: parseFeatures(pkg.features || ""),
       popular: Math.random() > 0.5, // Random for demo purposes
       duration: "Flexible stay options"
@@ -446,7 +446,7 @@ const PackagePage = () => {
         console.error("Error fetching packages:", err);
         // Fallback to demo data in case of error
         setPackages(transformPackageData);
-        console.log("package data==============>", transformPackageData );
+        console.log("package data=================>", transformPackageData );
       })
       .finally(() => setLoading(false));
   }, []);
@@ -701,12 +701,12 @@ const PackagePage = () => {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      {selectedPackage.discount && (
+                      {/* {selectedPackage.discount && (
                         <div className="discount-box p-3 bg-danger text-white rounded mb-3">
                           <h5 className="mb-0">Special Offer!</h5>
                           <p className="mb-0">{selectedPackage.discount}</p>
                         </div>
-                      )}
+                      )} */}
                       {selectedPackage.popular && (
                         <div className="popular-box p-3 bg-warning rounded">
                           <h5 className="mb-0">Popular Choice</h5>

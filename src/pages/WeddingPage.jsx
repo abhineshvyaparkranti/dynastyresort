@@ -18,10 +18,18 @@ function WeddingPage() {
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbOne 
+        {/* <BreadcrumbOne 
             title="Wedding Experience" 
             description="Whether you have questions, need assistance, or simply want to share."
-        />
+        /> */}
+          <BreadcrumbOne
+ 
+        title="Wedding Experience"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="wedding"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
         {/* <ContactOne /> */}
         <Wedding />
         <FooterOne />

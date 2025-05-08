@@ -79,7 +79,20 @@ function AboutTwo() {
 
                         <div className="image">
                             <div className="position-relative wow fadeInUp" data-wow-delay=".3s">
-                                <div className="jara-mask-1 jarallax image-height">
+                                <div className="jara-mask-1 jarallax image-height"  style={{
+                    transition: 'all 0.4s ease',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.03)';
+                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}>
                                    {!loading && aboutus.images && (() => {
                                     try {
                                         const imageList = JSON.parse(aboutus.images);

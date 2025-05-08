@@ -12,10 +12,18 @@ function MicePageWedding() {
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbOne 
-            title="Our Service" 
-            description="At Moonlit we pride ourselves on delivering an exceptional experience."
-        />
+        {/* <BreadcrumbOne 
+            title="Wedding" 
+            description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        /> */}
+         <BreadcrumbOne
+ 
+        title="Wedding"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="wedding"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
        
        {/* <MiceDetails /> */}
        <EventTwoWedding />

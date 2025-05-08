@@ -74,15 +74,36 @@ function TeamOne() {
               <div key={index} className="team__member px-2">
                 <Link to="#">
                   <div className="team__member__thumb" style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                    <img
+                    <img 
                       src={member.image}
                       alt={member.name}
-                      style={{
+                      // style={{
+                      //   width: '100%',
+                      //   height: '100%',
+                      //   objectFit: 'cover',
+                      //   objectPosition: 'top'
+                        
+                      // }}
+
+                       style={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        objectPosition: 'top'
-                      }}
+                        objectPosition: 'top',
+                        
+                        transition: 'all 0.4s ease',
+                    
+                        overflow: 'hidden',
+                        cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.03)';
+                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
                     />
                   </div>
                 </Link>

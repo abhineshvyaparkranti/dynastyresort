@@ -15,6 +15,15 @@ function RoomDetailsTwo() {
             title="About Us" 
             description="Welcome to Bokinn, where luxury meets comfort in the heart of Canada." 
         /> */}
+
+         <BreadcrumbOne
+ 
+        title="Room"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="room"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
         <RoomDetails2 />
         <SimilarRoom />
         <FooterOne />

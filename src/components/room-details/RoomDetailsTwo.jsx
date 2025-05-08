@@ -1596,7 +1596,7 @@ function RoomDetails() {
   amenities,
   video_link,
   images,
-  category
+//   category,
 } = roomData;
 
  

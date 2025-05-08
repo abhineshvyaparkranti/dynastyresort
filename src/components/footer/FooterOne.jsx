@@ -319,29 +319,37 @@ function FooterOne() {
                       <FaEnvelope /> {loading ? <Skeleton width={180} /> : contact?.mail}
                     </Link>
                   </li>
+
+                         
+
                   
                  
-                  <li>
-                  <Link to="#">
-                    <FaMapMarkerAlt />
-                    {loading ? (
-                      <Skeleton width={250} />
-                    ) : (
-                      (() => {
-                        const words = contact?.address?.replace(/<[^>]*>/g, '')?.split(' ') || [];
-                        const firstLine = words.slice(0, 4).join(' ');
-                        const secondLine = words.slice(4).join(' ');
-                        return (
-                          <>
-                            {firstLine}
-                            <br />
-                            {secondLine}
-                          </>
-                        );
-                      })()
-                    )}
-                  </Link>
-                </li>
+                 <li>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=29.369909,79.426384(Dynasty+Resort)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaMapMarkerAlt />
+                  {loading ? (
+                    <Skeleton width={250} />
+                  ) : (
+                    (() => {
+                      const words = contact?.address?.replace(/<[^>]*>/g, '')?.split(' ') || [];
+                      const firstLine = words.slice(0, 4).join(' ');
+                      const secondLine = words.slice(4).join(' ');
+                      return (
+                        <>
+                          {firstLine}
+                          <br />
+                          {secondLine}
+                        </>
+                      );
+                    })()
+                  )}
+                </a>
+              </li>
+
 
 
                 </ul>

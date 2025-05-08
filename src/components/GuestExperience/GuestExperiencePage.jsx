@@ -44,10 +44,18 @@ const GuestExperiencePage = () => {
     <div>
        <TopBar />
         <HeaderOne />
-        <BreadcrumbOne
+        {/* <BreadcrumbOne
             title="Guest Experience" 
             description="Welcome to Bokinn, where luxury meets comfort in the heart of Canada." 
-        />
+        /> */}
+          <BreadcrumbOne
+ 
+        title="Guest Experience"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="guest"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
         <GuestExperience />
         <GuestReviews />
         <TestimonialFive />

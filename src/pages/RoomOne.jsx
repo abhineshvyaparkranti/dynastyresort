@@ -12,10 +12,18 @@ function RoomOne() {
         <div>
             <TopBar />
             <HeaderOne />
-            <BreadcrumbOne
+            {/* <BreadcrumbOne
                 title="Deluxe Room"
                 description="A step up from the standard room, often with better views, more space, and additional amenities."
-            />
+            /> */}
+             <BreadcrumbOne
+ 
+        title="Room"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="room"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
             <AdvanceFormTwo />
             <RoomSix />
             <TestimonialOne />

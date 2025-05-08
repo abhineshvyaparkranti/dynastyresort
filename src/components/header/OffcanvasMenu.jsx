@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 // import Skeleton from 'react-loading-skeleton';
 // import 'react-loading-skeleton/dist/skeleton.css';
 import { getContact } from './../../api/getContact';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function OffcanvasMenu({ isOpen, onClose }) {
     const [activeMenu, setActiveMenu] = useState(null);
@@ -81,7 +83,7 @@ function OffcanvasMenu({ isOpen, onClose }) {
                                             </ul>
                                         </li> */}
                                         <li className="slide">
-                                            <Link className="slide__menu__item" to="/home-2">Home</Link>
+                                            <Link className="slide__menu__item" to="/">Home</Link>
                                         </li>
 
                                         {/* About Us */}
@@ -200,10 +202,35 @@ function OffcanvasMenu({ isOpen, onClose }) {
                                 </div>
                                 <div className="item">
                                     <span className="h6">Address</span>
-                                    <Link to="#">
+                                    {/* <Link to="#">
                                         <i className="flaticon-marker" /> {contact?.address}
                                         
-                                    </Link>
+                                    </Link> */}
+                                   
+                                                    <a
+                                                      href="https://www.google.com/maps/search/?api=1&query=29.369909,79.426384(Dynasty+Resort)"
+                                                      target="_blank"
+                                                      rel="noopener noreferrer"
+                                                    >
+                                                      {/* <FaMapMarkerAlt /> */}
+                                                      {loading ? (
+                                                        <Skeleton width={250} />
+                                                      ) : (
+                                                        (() => {
+                                                          const words = contact?.address?.replace(/<[^>]*>/g, '')?.split(' ') || [];
+                                                          const firstLine = words.slice(0, 4).join(' ');
+                                                          const secondLine = words.slice(4).join(' ');
+                                                          return (
+                                                            <>
+                                                              {firstLine}
+                                                              <br />
+                                                              {secondLine}
+                                                            </>
+                                                          );
+                                                        })()
+                                                      )}
+                                                    </a>
+                                                 
                                 </div>
                             </div>
                         </div>

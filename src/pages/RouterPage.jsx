@@ -57,7 +57,7 @@ function RouterPage() {
         <Routes>
           {/* <Route path="/" element={<HomeOne />} /> */}
           <Route path="/" element={<HomeTwo />} />
-          <Route path="/home-2" element={<HomeTwo />} />
+          <Route path="/" element={<HomeTwo />} />
           <Route path="/home-3" element={<HomeThree />} />
           <Route path="/home-4" element={<HomeFour />} />
           <Route path="/home-5" element={<HomeFive />} />

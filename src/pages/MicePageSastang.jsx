@@ -12,10 +12,19 @@ function MicePageSastang() {
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbOne 
-            title="Our Service" 
-            description="At Moonlit we pride ourselves on delivering an exceptional experience."
-        />
+        {/* <BreadcrumbOne 
+            title="Satsang  " 
+            description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        /> */}
+
+        <BreadcrumbOne
+ 
+        title="Satsang"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="satsang"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
        
        {/* <MiceDetails /> */}
        <EventTwoSatsang />

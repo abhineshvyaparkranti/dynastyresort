@@ -9008,9 +9008,9 @@ input:focus-visible {
   background: #fff;
 }
 
-.page__hero__bg::before {
+/* .page__hero__bg::before {
   background-color: rgba(27, 27, 27, 0.6);
-}
+} */
 
 .page__hero__bg.no__shadow::before {
   background-color: rgba(27, 27, 27, 0);
@@ -9179,10 +9179,11 @@ input:focus-visible {
   display: block;
   margin-bottom: 15px;
   transition: var(--transition);
+   color: var(--heading-color);
 }
 
 .room__card__meta .room__card__title:hover {
-  color: var(--heading-color);
+  color: rgb(92, 92, 220);
 }
 
 .room__card__meta .room__price__tag span {
@@ -9193,6 +9194,7 @@ input:focus-visible {
   display: flex;
   gap: 15px;
   margin-bottom: 10px;
+  color: var(--heading-color);
 }
 
 @media screen and (max-width: 576px) {

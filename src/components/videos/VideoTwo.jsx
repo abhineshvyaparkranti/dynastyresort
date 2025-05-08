@@ -133,7 +133,24 @@ function VideoTwo() {
           <div className="row">
             <div className="col-12">
               <div className="video__area position-relative wow fadeInUp">
-                <div className="video__area__image jara-mask-2 jarallax">
+                {/* <div className="video__area__image jara-mask-2 jarallax"> */}
+                <div 
+                  className="video__area__image jara-mask-2 jarallax"
+                  style={{
+                    transition: 'all 0.4s ease',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.03)';
+                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
                   {loading ? (
                     <Skeleton height={400} />
                   ) : (

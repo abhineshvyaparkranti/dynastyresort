@@ -80,7 +80,9 @@ function ServiceFive() {
         if (data?.allFacility) {
           setFacilities(data.allFacility);
         }
+        console.log("wedding facilities================>", data.allFacility );
       })
+       
       .catch((err) => {
         console.error("Error fetching facilities:", err);
       })
@@ -127,16 +129,18 @@ function ServiceFive() {
 
                   <div className="card-body text-center">
                     <div className="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style={{ width: '80px', height: '80px' }}>
-                      {facility.icon?.endsWith('.svg') || facility.icon?.endsWith('.webp') ? (
-                        <img
-                          src={facility.icon}
-                          alt={facility.title}
-                          className="img-fluid p-2"
-                          style={{ maxWidth: '50px', maxHeight: '50px' }}
-                        />
-                      ) : (
-                        <i className="flaticon-placeholder fs-1 text-primary"></i>
-                      )}
+                      {facility.icon && (facility.icon.endsWith('.svg') || facility.icon.endsWith('.webp') || facility.icon.endsWith('.png') || facility.icon.endsWith('.jpg')) ? (
+              <img
+                src={facility.icon}
+                alt={facility.title}
+                className="img-fluid p-2"
+                style={{ maxWidth: '50px', maxHeight: '50px' }}
+                onError={(e) => { e.target.onerror = null; e.target.src = '/default-icon.png'; }}
+              />
+            ) : (
+              <i className="flaticon-placeholder fs-1 text-primary"></i>
+            )}
+
                     </div>
                     <h5 className="card-title mb-3">
                       <Link to="#" className="text-decoration-none text-dark">{facility.title}</Link>

@@ -16,10 +16,18 @@ function Gallery() {
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbOne 
+        {/* <BreadcrumbOne 
             title="Gallery" 
             description="where every image tells a story of luxury, comfort, and unparalleled hospitality"
-        />
+        /> */}
+         <BreadcrumbOne
+ 
+        title="Gallery"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="gallery"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
         <GalleryTwo />
         <VideoTwo />
         <FooterOne />

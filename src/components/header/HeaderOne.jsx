@@ -46,7 +46,7 @@ function HeaderOne() {
 
                                              <li className="navigation__menu--item">
                                                 <Link
-                                                    to="/home-2"
+                                                    to="/"
                                                     className="navigation__menu--item__link"
                                                 >
                                                     Home
@@ -346,7 +346,7 @@ function HeaderOne() {
                                 </div>
                             </div>
                             <div className="main__logo">
-                                <Link to="/home-2">
+                                <Link to="/">
                                     {/* <img
                                         className="logo__class"
                                         src="/assets/images/logo/dynastylogo.png"

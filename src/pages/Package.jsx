@@ -16,10 +16,18 @@ function Package() {
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbOne 
+        {/* <BreadcrumbOne 
             title="Package " 
             description="Whether you have questions, need assistance, or simply want to share."
-        />
+        /> */}
+          <BreadcrumbOne
+ 
+        title="Package"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="offer"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
         {/* <ContactOne /> */}
         <PackagePage />
         <FooterOne />
