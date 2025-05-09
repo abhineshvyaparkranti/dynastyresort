@@ -4,13 +4,14 @@ import HeaderOne from '../components/header/HeaderOne'
 import BreadcrumbOne from '../components/breadcrumb/BreadcrumbOne'
 import BlogThree from '../components/blog/BlogThree'
 import FooterOne from '../components/footer/FooterOne'
+import BreadcrumbTwoCommon from '../components/breadcrumb/BreadcrumbTwoCommon'
 
 function Blog() {
   return (
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbOne
+        <BreadcrumbTwoCommon
             title="Our Blog" 
             description="Discover The blog where luxury, comfort, and adventure come together."
         />

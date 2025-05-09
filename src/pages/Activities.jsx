@@ -4,13 +4,14 @@ import HeaderOne from '../components/header/HeaderOne'
 import BreadcrumbOne from '../components/breadcrumb/BreadcrumbOne'
 import ActivitiesOne from '../components/activities/ActivitiesOne'
 import FooterOne from '../components/footer/FooterOne'
+import BreadcrumbTwoCommon from '../components/breadcrumb/BreadcrumbTwoCommon'
 
 function Activities() {
   return (
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbOne
+        <BreadcrumbTwoCommon
             title="Activities" 
             description="Our diverse range of activities is designed to offer something for everyone."
         />

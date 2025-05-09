@@ -4,6 +4,7 @@ import TopBar from '../components/header/TopBar'
 import HeaderOne from '../components/header/HeaderOne'
 import BreadcrumbOne from '../components/breadcrumb/BreadcrumbOne'
 import FooterOne from '../components/footer/FooterOne'
+import BreadcrumbTwoCommon from '../components/breadcrumb/BreadcrumbTwoCommon'
  
 
 const PrivacyPage = () => {
@@ -11,7 +12,7 @@ const PrivacyPage = () => {
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbOne 
+        <BreadcrumbTwoCommon
             title="Privacy Policy " 
             description="Whether you have questions, need assistance, or simply want to share."
         />
