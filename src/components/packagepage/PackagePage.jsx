@@ -631,7 +631,7 @@ const PackagePage = () => {
                       {/* <Button style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}>
                         Book Now
                       </Button> */}
-                       <Link to='https://www.asiatech.in/booking_engine/index3.php?token=MTY='
+                       <Link to='/contact'
                         className="theme-btn btn-style fill no-border search__btn wow fadeInUp text-center"
                         data-wow-delay=".6s"
                     >
@@ -757,7 +757,7 @@ const PackagePage = () => {
             {/* <Button style={{ backgroundColor: 'var(--btn-1)', borderColor: 'var(--btn-1)' }}>
               Book Now
             </Button> */}
-             <Link to='https://www.asiatech.in/booking_engine/index3.php?token=MTY='
+             <Link to='/contact'
                 className="theme-btn btn-style fill no-border search__btn wow fadeInUp text-center"
                 data-wow-delay=".6s"
             >

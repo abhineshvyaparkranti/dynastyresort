@@ -220,6 +220,22 @@ function FooterOne() {
   const [contact, setContact] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const [hoveredIcon, setHoveredIcon] = useState(null);
+
+  const iconStyle = (index) => ({
+    color: hoveredIcon === index ? '#ab8a62' : 'grey', // Hover color
+    transition: 'color 0.3s ease',
+    cursor: 'pointer',
+  });
+
+  const icons = [
+    { key: 'facebook', Icon: FaFacebookF, url: contact?.facebook },
+    { key: 'instagram', Icon: FaInstagram, url: contact?.instagram },
+    { key: 'twitter', Icon: FaTwitter, url: contact?.twitter },
+    { key: 'linkedin', Icon: FaLinkedinIn, url: contact?.linkedin },
+    { key: 'youtube', Icon: FaYoutube, url: contact?.youtube },
+  ];
+
   useEffect(() => {
     getContact()
       .then((data) => {
@@ -281,13 +297,16 @@ function FooterOne() {
               <div className="rts__widget">
                 <span className="widget__title">Quick Links</span>
                 <ul>
+
+                   
+                   <li><Link to="/about">About Us</Link></li>
                   <li><Link to="/activities">Activities</Link></li>
                   {/* <li><Link to="/resturant">Restaurant</Link></li> */}
                   <li><Link to="/blog">Blog</Link></li>
                   <li><Link to="/contact">Contact Us</Link></li>
-                  <li><Link to="/termscondition">Terms & Conditions</Link></li>
-                  <li><Link to="/privacy">Privacy Policy</Link></li>
-                  <li><Link to="/refund">Refund Cancellation Policy</Link></li>
+                  {/* <li><Link to="/termscondition">Terms & Conditions</Link></li> */}
+                  {/* <li><Link to="/privacy">Privacy Policy</Link></li> */}
+                  {/* <li><Link to="/refund">Refund Cancellation Policy</Link></li> */}
                   <li><Link to="/service">Our Service</Link></li>
                 </ul>
               </div>
@@ -356,7 +375,7 @@ function FooterOne() {
 
                 {/* Social Icons */}
                 <div className="d-flex flex-wrap gap-3 mt-4">
-                  {contact?.facebook && (
+                  {/* {contact?.facebook && (
                     <Link to={contact.facebook} target="_blank" rel="noopener noreferrer">
                       <FaFacebookF style={{ color: 'grey' }} size={20} />
                     </Link>
@@ -380,7 +399,22 @@ function FooterOne() {
                     <Link to={contact.youtube} target="_blank" rel="noopener noreferrer">
                       <FaYoutube style={{ color: 'grey' }} size={20} />
                     </Link>
-                  )}
+                  )} */}
+
+                  {icons.map(({ key, Icon, url }, index) => (
+                url && (
+                  <Link
+                    to={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={key}
+                    onMouseEnter={() => setHoveredIcon(index)}
+                    onMouseLeave={() => setHoveredIcon(null)}
+                  >
+                    <Icon style={iconStyle(index)} size={20} />
+                  </Link>
+                )
+              ))}
                 </div>
               </div>
             </div>
@@ -391,11 +425,27 @@ function FooterOne() {
         <div className="copyright__text">
           <div className="container">
             <div className="row">
-              <div className="copyright__wrapper d-flex flex-column justify-content-center align-items-center text-center py-3">
+              {/* <div className="copyright__wrapper d-flex flex-column justify-content-center align-items-center text-center py-3">
                 <p className="mb-0">
                   Copyright © {new Date().getFullYear()} Dynasty Resort. All rights reserved.
                 </p>
-              </div>
+
+                <li><Link to="/privacy">Privacy Policy</Link></li>
+                  <li><Link to="/refund">Refund Cancellation Policy</Link></li>
+                  <li><Link to="/service">Our Service</Link></li>
+              </div> */}
+              <div className="copyright__wrapper d-flex justify-content-between align-items-center py-3 flex-wrap">
+              <p className="mb-0">
+                Copyright © {new Date().getFullYear()} Dynasty Resort. All rights reserved.
+              </p>
+
+              <ul className="list-unstyled d-flex gap-3 mb-0">
+                <li  ><Link to="/privacy" style={{color: 'grey'}}>Privacy Policy</Link></li>
+                <li   ><Link to="/refund" style={{color: 'grey'}}>Refund Cancellation Policy</Link></li>
+                {/* <li   ><Link to="/service" style={{color: 'grey'}}>Our Service</Link></li> */}
+              </ul>
+            </div>
+
             </div>
           </div>
         </div>

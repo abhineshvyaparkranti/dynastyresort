@@ -95,7 +95,7 @@ function ServiceFive() {
          {/* Section Heading */}
     <div className="row mb-4">
       <div className="col text-center">
-        <h2 className="fw-bold">Our Facilities</h2>
+        <h2 class='h6'>Our Facilities</h2>
         <p className="text-muted">Explore the features and amenities we offer</p>
       </div>
     </div>
@@ -143,7 +143,7 @@ function ServiceFive() {
 
                     </div>
                     <h5 className="card-title mb-3">
-                      <Link to="#" className="text-decoration-none text-dark">{facility.title}</Link>
+                      <Link to="#" class='h6' style={{color: 'black'}}>{facility.title}</Link>
                     </h5>
                     <div className="card-text" dangerouslySetInnerHTML={{ __html: facility.description }} />
                   </div>

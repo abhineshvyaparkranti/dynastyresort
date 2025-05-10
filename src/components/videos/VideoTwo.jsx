@@ -70,20 +70,25 @@
 
 // export default VideoTwo
 
-import React, { useState, useEffect } from "react";
+ import React, { useState, useEffect } from "react";
 import ModalVideo from "react-modal-video";
 import "react-modal-video/css/modal-video.css";
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { getHomeVedio } from "../../api/getHomeVedio";
 
-function extractYouTubeVideoId(html) {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
-  const anchor = doc.querySelector("span") || doc.querySelector("a");
-  if (!anchor) return null;
-  const url = new URL(anchor.textContent.trim());
-  return url.searchParams.get("v") || url.pathname.split("/").pop();
+// Extract video ID from YouTube URL
+function extractYouTubeVideoId(url) {
+  try {
+    const parsedUrl = new URL(url);
+    if (parsedUrl.hostname === 'youtu.be') {
+      return parsedUrl.pathname.slice(1);
+    }
+    return parsedUrl.searchParams.get("v") || parsedUrl.pathname.split("/").pop();
+  } catch (err) {
+    console.error("Invalid video URL:", url);
+    return null;
+  }
 }
 
 function VideoTwo() {
@@ -97,12 +102,11 @@ function VideoTwo() {
     getHomeVedio()
       .then((data) => {
         if (data.status && data.videoLink) {
-  const id = extractYouTubeVideoId(data.videoLink);
-  setVideoId(id);
-  setBannerImage(data.bannerImage); // ✅ Use bannerImage from API
-  console.log("home video get api =================>", data.videoLink);
-}
-
+          const id = extractYouTubeVideoId(data.videoLink);
+          setVideoId(id);
+          setBannerImage(data.bannerImage);
+          console.log("Fetched video link=========>:", data.videoLink);
+        }
       })
       .catch((err) => {
         console.error("Error fetching video data:", err);
@@ -123,7 +127,7 @@ function VideoTwo() {
       )}
 
       {/* Video section start */}
-      <div className="rts__section section__padding video has__shape">
+      {/* <div className="rts__section section__padding video has__shape">
         <div className="section__shape">
           <div className="shape__1">
             <img src="/assets/images/shape/video-1.svg" alt="" />
@@ -133,24 +137,7 @@ function VideoTwo() {
           <div className="row">
             <div className="col-12">
               <div className="video__area position-relative wow fadeInUp">
-                {/* <div className="video__area__image jara-mask-2 jarallax"> */}
-                <div 
-                  className="video__area__image jara-mask-2 jarallax"
-                  style={{
-                    transition: 'all 0.4s ease',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    cursor: 'pointer',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.03)';
-                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'scale(1)';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
-                >
+                <div className="video__area__image jara-mask-2 jarallax">
                   {loading ? (
                     <Skeleton height={400} />
                   ) : (
@@ -192,7 +179,55 @@ function VideoTwo() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <div className="rts__section section__padding video has__shape">
+                <div className="section__shape">
+                    <div className="shape__1">
+                        <img src="/assets/images/shape/video-1.svg" alt="" />
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="video__area position-relative wow fadeInUp">
+                                <div className="video__area__image jara-mask-2 jarallax">
+                                    <img
+                                        className="radius-10 jarallax-img"
+                                         src={bannerImage}
+                                        alt=""
+                                    />
+                                </div>
+                                <div className="video--spinner__wrapper ">
+                                    <div className="rts__circle">
+                                        <svg className="spinner" viewBox="0 0 100 100">
+                                            <defs>
+                                                <path
+                                                    id="circle-2"
+                                                    d="M50,50 m-37,0a37,37 0 1,1 74,0a37,37 0 1,1 -74,0"
+                                                />
+                                            </defs>
+                                            <text>
+                                                <textPath xlinkHref="#circle-2">
+                                                    Watch Now * Watch Now * Watch Full Video *
+                                                </textPath>
+                                            </text>
+                                        </svg>
+                                        <div className="rts__circle--icon">
+                                            <button
+                                                className="video-play"
+                                                onClick={() => setIsOpen(true)}
+                                            >
+                                                <i className="flaticon-play" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
       {/* Video section end */}
     </>
   );

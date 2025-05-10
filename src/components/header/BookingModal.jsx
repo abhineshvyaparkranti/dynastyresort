@@ -161,7 +161,7 @@ function BookingModal({ show, handleClose }) {
       setStatus(null);
       setFormData({
         name: '',
-        email: '',
+        // email: '',
         phone_number: '',
         message: '',
         captchaAnswer: ''
@@ -180,8 +180,8 @@ function BookingModal({ show, handleClose }) {
   const validateForm = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = 'Invalid email format';
+    // if (!formData.email.trim()) newErrors.email = 'Email is required';
+    // else if (!/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = 'Invalid email format';
     if (!formData.phone_number.trim()) newErrors.phone_number = 'Phone number is required';
     else if (!/^[0-9]{10}$/.test(formData.phone_number)) newErrors.phone_number = 'Phone number must be 10 digits';
     if (!formData.captchaAnswer.trim()) newErrors.captchaAnswer = 'CAPTCHA is required';
@@ -197,7 +197,7 @@ function BookingModal({ show, handleClose }) {
     try {
       await postQuery({
         name: formData.name,
-        email: formData.email,
+        // email: formData.email,
         phone_number: formData.phone_number,
         message: formData.message
       });
@@ -278,7 +278,7 @@ function BookingModal({ show, handleClose }) {
                     <Form.Control.Feedback type="invalid">{errors.name}</Form.Control.Feedback>
                   </Form.Group>
 
-                  <Form.Group className="mb-3">
+                  {/* <Form.Group className="mb-3">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                       type="email"
@@ -289,7 +289,7 @@ function BookingModal({ show, handleClose }) {
                       isInvalid={!!errors.email}
                     />
                     <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
-                  </Form.Group>
+                  </Form.Group> */}
 
                   <Form.Group className="mb-3">
                     <Form.Label>Mobile</Form.Label>

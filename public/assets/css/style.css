@@ -1,4 +1,4 @@
-/*
+ /*
 Template Name: Moonlit - Hotel and Resturant HTML Template
 Author: Reacthemes
 Author URI: https://themeforest.net/user/reacthemes
@@ -10512,7 +10512,8 @@ picture.jarallax-img img {
 
 @media screen and (max-width: 768px) {
   .about__images .image__right {
-    margin-left: 100px;
+    margin-left: 0px;
+    margin-top: 0px;
   }
 }
 
@@ -11922,10 +11923,10 @@ picture.jarallax-img img {
 }
 
 .modal-content {
-  background: white;
+  background: white !important;
   max-width: max-content;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 10px !important;
 }
 
 .modal-image {
@@ -16602,3 +16603,8 @@ For example:
 If you love our template, please give us a star on https://themeforest.net/user/reacthemes
 */
 /*# sourceMappingURL=../maps/style.css.map */
+
+
+.slider__text__custom {
+  font-size: 24px !important;
+}

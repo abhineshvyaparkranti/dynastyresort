@@ -103,6 +103,7 @@
  
 
 import { useState, useEffect } from 'react';
+import '../../components/global.css';
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('');

@@ -23,7 +23,8 @@ const FloatingButtons = ({ phoneNumber, whatsappNumber, bookingUrl }) => {
           onClick={handlePhoneClick}
           className="btn btn-success rounded-circle shadow p-3 d-flex align-items-center justify-content-center"
           aria-label="Call us"
-          style={{ width: '60px', height: '60px' }}
+          style={{ width: '60px', height: '60px',  backgroundColor: '#106eec', 
+            borderColor: '#106eec'  }}
         >
           <Phone size={24} />
         </button>
@@ -44,7 +45,7 @@ const FloatingButtons = ({ phoneNumber, whatsappNumber, bookingUrl }) => {
       </div>
 
       {/* Booking button - left corner */}
-      <div className="position-fixed bottom-0 start-0 mb-3 ms-3" style={{ zIndex: 1050 }}>
+      {/* <div className="position-fixed bottom-0 start-0 mb-3 ms-3" style={{ zIndex: 1050 }}>
         <a 
           onClick={handleBookingClick}
           href={bookingUrl}
@@ -61,7 +62,7 @@ const FloatingButtons = ({ phoneNumber, whatsappNumber, bookingUrl }) => {
       />
 
         </a>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -36,7 +36,7 @@ const [showModal, setShowModal] = useState(false);
           <div className="row">
             <div className="section__wrapper mb-40 wow fadeInUp" data-wow-delay=".3s">
               <div className="section__content__left">
-                <span className="h6 subtitle__icon__two d-block wow fadeInUp">
+                <span className="h5 subtitle__icon__two d-block wow fadeInUp" style={{color: '#ab8a62'}}>
                   Special Offer
                 </span>
                 <h2 className="content__title h2 lh-1">Special Offer</h2>
@@ -79,7 +79,7 @@ const [showModal, setShowModal] = useState(false);
                       </div>
                       <div className="single__offer__content">
                         <Link to="#">
-                          <h6>{item.title}</h6>
+                          <h6 style={{color: 'black', fontSize: '1.5rem'}}>{item.title}</h6>
                         </Link>
                         <ul className="offer__included">
                           {features.map((feature, i) => (

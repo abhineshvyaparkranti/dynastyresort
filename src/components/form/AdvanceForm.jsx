@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import WOW from 'wowjs'; // Import DatePicker styles
+import BookingModal from '../header/BookingModal';
+import { Link } from 'react-router-dom'
 
 function AdvanceForm() {
     useEffect(() => {
@@ -9,6 +11,30 @@ function AdvanceForm() {
     }, []);
     const [checkInDate, setCheckInDate] = useState(null);
     const [checkOutDate, setCheckOutDate] = useState(null);
+    const [isSticky, setIsSticky] = useState(false);
+    const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
+
+
+    const [showModal, setShowModal] = useState(false);
+    
+      const handleShow = () => setShowModal(true);
+      const handleClose = () => setShowModal(false);
+        useEffect(() => {
+            const handleScroll = () => {
+                if (window.scrollY > 150) {
+                    setIsSticky(true);
+                } else {
+                    setIsSticky(false);
+                }
+            };
+    
+            window.addEventListener('scroll', handleScroll);
+    
+            // Clean up the event listener on component unmount
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }, []);
 
     return (
         <div className="rts__section advance__search__section is__home__one">
@@ -74,12 +100,31 @@ function AdvanceForm() {
                             {/* <button className="theme-btn btn-style fill no-border search__btn" type="submit">
                                 <span>Check Now</span>
                             </button> */}
-                             <a href="https://www.asiatech.in/booking_engine/index3.php?token=MTY="
+                             <a to="#"
                                 className="theme-btn btn-style fill no-border search__btn wow fadeInUp"
                                 data-wow-delay=".6s"
+                                 onClick={(e) => {
+                            e.preventDefault();
+                            handleShow();
+                            }}
                             >
                                 <span>Check Now</span>
                             </a>
+
+
+                             {/* <Link
+                            to="#"
+                            className="theme-btn btn-style sm-btn fill"
+                            onClick={(e) => {
+                            e.preventDefault();
+                            handleShow();
+                            }}
+                        >
+                            <span>Enquiry Now</span>
+                        </Link> */}
+
+                        
+                        <BookingModal show={showModal} handleClose={handleClose} />
                         </div>
                     </form>
                 </div>

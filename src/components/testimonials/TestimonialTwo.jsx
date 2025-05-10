@@ -5,6 +5,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import 'swiper/swiper-bundle.css';
+import htmlReactParser, { domToReact } from 'html-react-parser';
+import './TestimonialTwo.css';
+
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -32,6 +35,30 @@ function TestimonialTwo() {
 
     fetchReviews();
   }, []);
+
+  const removeTags = (htmlString) => {
+        if (typeof htmlString !== "string") {
+            console.error("Invalid input for removeTags:", htmlString);
+            return ""; 
+        }
+        
+        if (!htmlString.includes('<') && !htmlString.includes('>')) {
+            return htmlString;
+        }
+        
+        try {
+            return htmlReactParser(htmlString, {
+                replace: (domNode) => {
+                    if (domNode.type === 'tag') {
+                        return <>{domToReact(domNode.children)}</>;
+                    }
+                },
+            });
+        } catch (error) {
+            console.error("Error parsing HTML:", error);
+            return htmlString.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ').trim();
+        }
+    };
 
   return (
     <>
@@ -93,10 +120,13 @@ function TestimonialTwo() {
                             />
                           ))}
                         </div>
-                        <span
+                        {/* <span
                           className="slider__text d-block"
                           dangerouslySetInnerHTML={{ __html: item.description }}
-                        />
+                        /> */}
+                        <span  className="slider__text d-block slider__text__custom" > {removeTags(item.description)}</span>
+     
+
                         <div className="slider__author__info">
                           <div className="slider__author__info__image">
                             <img
@@ -153,6 +183,13 @@ function TestimonialTwo() {
           </div>
         </div>
       </div>
+
+
+      <style jsx>{`
+                .slider__text__custom {
+  font-size: 24px !important;
+}
+            `}</style>
     </>
   );
 }

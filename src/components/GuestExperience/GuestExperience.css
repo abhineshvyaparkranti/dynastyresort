@@ -383,9 +383,10 @@
 }
 
 /* Gradient Background */
-.bg-gradient-primary {
-  background: linear-gradient(135deg, var(--cta-color-1) 0%, var(--cta-color-2) 100%);
+ .bg-gradient-primary {
+  background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
 }
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

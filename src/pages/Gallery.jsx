@@ -28,7 +28,8 @@ function Gallery() {
         useApiHeading={true}
         useApiDescription={true}
       />
-        <GalleryTwo />
+        {/* <GalleryTwo /> */}
+        <GalleryFive />
         <VideoTwo />
         <FooterOne />
     </div>

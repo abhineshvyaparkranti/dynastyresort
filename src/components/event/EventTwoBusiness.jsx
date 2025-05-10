@@ -105,7 +105,7 @@ function EventTwoBusiness() {
                                             {conference?.title || "A Night of Hope: Our Charity Gala Room."}
                                         </h2>
                                         <div 
-                                            className="font-sm wow fadeInUp"
+                                            className="font-sm wow fadeInUp" 
                                             dangerouslySetInnerHTML={createMarkup(conference?.short_desc || "")}
                                         />
                                     </>

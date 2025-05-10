@@ -113,6 +113,21 @@ function RoomCardFive( {roomID} ) {
                     </span>
                 </div>
                 <div className="room__price__tag">
+                <a className="room__card__link">
+                        Discover More
+                    </a>
+
+                 {/* <Link to={`/room2/${roomID}`} className="room__card__link">
+                  <span>Discover More</span>
+               </Link> */}
+               {/* <Link
+                                   to={`/room3/${roomSlug || roomID}`}
+                                   state={{ roomSlug: roomSlug }}
+                                   className="room__btn"
+                                   onClick={ClickHandler}
+                               >
+                                   Discover More
+                               </Link> */}
                     {/* <span className="h6 d-block">
                         {price ? `₹${price}` : 'Price on request'}
                     </span> */}

@@ -4,6 +4,7 @@ import OffcanvasMenu from './OffcanvasMenu';
 import LoginForm from '../form/LoginForm';
 import SignUpForm from '../form/SignUpForm';
 import BookingModal from './BookingModal';
+import GuestExperience from './../GuestExperience/GuestExperience';
  
 
 function HeaderOne() {
@@ -154,14 +155,14 @@ function HeaderOne() {
                                                 </div> 
                                             </li> */}
 
-                                             <li className="navigation__menu--item">
+                                             {/* <li className="navigation__menu--item">
                                                 <Link
                                                     to="/about"
                                                     className="navigation__menu--item__link"
                                                 >
                                                     About
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                             <li className="navigation__menu--item has-child ">
                                                 <Link to="/room-two" className="navigation__menu--item__link">
                                                     Rooms
@@ -294,7 +295,7 @@ function HeaderOne() {
                                                     to="/guestexperience"
                                                     className="navigation__menu--item__link"
                                                 >
-                                                    Guest
+                                                    Experience
                                                 </Link>
                                             </li>
 
@@ -381,9 +382,9 @@ function HeaderOne() {
                                 </button> */}
 
                                 {/* Book Now Button */}
-                                {/* <Link to="/room/1" className="theme-btn btn-style sm-btn fill">
+                                <Link to="https://www.asiatech.in/booking_engine/index3.php?token=MTY=" className="theme-btn btn-style sm-btn fill">
                                     <span>Book Now</span>
-                                </Link> */}
+                                </Link>
 
                                {/* Book Now Button */}
                             <Link

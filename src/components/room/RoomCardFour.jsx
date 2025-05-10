@@ -167,7 +167,16 @@ function RoomCardFour(props) {
                     </Link>
                 </div>
                 <div className="room__price__tag">
-                    <span className="h6 d-block">{roomPrice ? roomPrice : 'Contact for price'}</span>
+                    <span className=" d-block" style={{
+                    display: 'block',
+                    fontSize: '1rem',         // Adjust as needed
+                    fontWeight: 600,          // Equivalent to h6
+                    lineHeight: '1.5',
+                    color: '#ab8a62',            // Optional text color
+                    // Optional spacing
+                    textAlign: 'left',        // Or 'center' if desired
+                    wordBreak: 'break-word'   // For responsive wrapping
+                    }}>{roomPrice ? roomPrice : 'Contact for price'}</span>
                 </div>
             </div>
             <div className="room__card__meta">
@@ -200,6 +209,7 @@ function RoomCardFour(props) {
                     state={{ roomSlug: roomSlug }}
                     className="room__btn"
                     onClick={ClickHandler}
+                    style={{color: '#AB8A62'}}
                 >
                     Discover More
                 </Link>

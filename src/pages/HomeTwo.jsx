@@ -11,7 +11,7 @@ import VideoTwo from '../components/videos/VideoTwo'
 import OfferTwo from '../components/offer/OfferTwo'
 import GalleryTwo from '../components/gallery/GalleryTwo'
 import FooterOne from '../components/footer/FooterOne'
-// import posts from '../components/data/data-room.json'
+import posts from '../components/data/data-room.json'
 import HomeRoom from '../components/room-details/HomeRoom'
 import BookingModal from '../components/header/BookingModal'
  
@@ -46,14 +46,14 @@ function HomeTwo() {
         <AdvanceForm />
         <AboutTwo />
         <FacilitiesTwo />
-        {/* <RoomTwo posts={posts}/> */}
-        <HomeRoom />
+        <RoomTwo posts={posts}/>
+        {/* <HomeRoom /> */}
          
         
         <TestimonialTwo />
         <VideoTwo />
         <OfferTwo />
-        <GalleryTwo limit={8} />
+        <GalleryTwo limit={4} />
         <BookingModal show={showBookingModal} handleClose={handleCloseBooking} />
         <FooterOne />
     </div>
