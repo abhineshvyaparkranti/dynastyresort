@@ -26,7 +26,7 @@ const FAQItem = ({ question, answer, isOpen, toggleFAQ }) => (
         className="btn btn-link w-100 d-flex justify-content-between align-items-center text-decoration-none text-start px-3 py-3"
         onClick={toggleFAQ}
       >
-        <span className="fw-medium">{question}</span>
+        <span className="fw-medium" style={{color:'#ab8a62' }}>{question}</span>
         <span>{isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}</span>
       </button>
     </div>

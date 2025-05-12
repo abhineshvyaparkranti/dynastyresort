@@ -140,10 +140,13 @@
   
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { jarallax } from 'jarallax';
+// import { jarallax } from 'jarallax';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { getFacilities } from '../../api/getFacilities';
+import { jarallax, jarallaxVideo } from 'jarallax';
+import 'jarallax/dist/jarallax.css';
+
 
 const ITEMS_PER_PAGE = 4;
 
@@ -190,12 +193,21 @@ function FacilitiesSeven() {
     }, [currentPage]);
 
     useEffect(() => {
-        if (!/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            document.querySelectorAll('.jarallax').forEach((element) => {
-                jarallax(element, {});
+    if (facilityBanner && !/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        const elements = document.querySelectorAll('.jarallax');
+        jarallax(elements, { speed: 0.5 });
+
+        // Cleanup to destroy jarallax instances on unmount or re-render
+        return () => {
+            elements.forEach(el => {
+                if (el.jarallax) {
+                    el.jarallax.destroy();
+                }
             });
-        }
-    }, []);
+        };
+    }
+}, [facilityBanner]);
+
 
     const renderSkeletonCards = () => {
         return Array.from({ length: ITEMS_PER_PAGE }).map((_, idx) => (
@@ -309,12 +321,7 @@ function FacilitiesSeven() {
                     </div>
                     <div className="col-lg-6">
                         {facilityBanner ? (
-                        <div className="facility__image jara-mask-3 jarallax"  style={{
-                    transition: 'all 0.4s ease',
-                    
-                    overflow: 'hidden',
-                    cursor: 'pointer',
-                  }}
+                        <div className="facility__image jara-mask-3 jarallax"   
                   >
                         <img
                             height={765}

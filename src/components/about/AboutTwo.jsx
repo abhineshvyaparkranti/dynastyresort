@@ -100,9 +100,9 @@ function AboutTwo() {
                         <div className="content">
                             <span className="h4 subtitle__icon__two d-block wow fadeInUp" data-wow-duration="1s" style={{ color: '#ab8a62' }}>About Us</span>
 
-                            <h1 className="content__title wow fadeInUp" data-wow-duration="1.2s">
+                            <h2 className="content__title wow fadeInUp" data-wow-duration="1.2s">
                                 {loading ? <Skeleton width={300} /> : aboutus.title}
-                            </h1>
+                            </h2>
 
                             <div className="wow fadeInUp" data-wow-duration="1.5s">
                                 {loading ? (

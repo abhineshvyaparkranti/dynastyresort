@@ -47,7 +47,7 @@ function GalleryOne() {
               loop={true}
               centeredSlides={false}
               autoplay={{
-                delay: 3000,
+                delay: 1000,
               }}
               speed={1000}
               effect="slide"

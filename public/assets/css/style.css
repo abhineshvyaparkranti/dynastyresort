@@ -8194,24 +8194,24 @@ input:focus-visible {
 
 .navigation__menu--item {
   position: relative;
-  margin: 0 20px;
+  margin: 0 8px;
 }
 
 @media screen and (max-width: 1400px) {
   .navigation__menu--item {
-    margin: 0 25px;
+    margin: 0 5px;
   }
 }
 
 @media screen and (max-width: 1300px) and (min-width: 1200px) {
   .navigation__menu--item {
-    margin: 0 15px;
+    margin: 0 5px;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .navigation__menu--item {
-    margin: 0 14px;
+    margin: 0 5px;
   }
 }
 
@@ -8531,7 +8531,7 @@ input:focus-visible {
 }
 
 .theme-btn.sm-btn {
-  padding: 5px 20px;
+  padding: 5px 12px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -10711,9 +10711,9 @@ picture.jarallax-img img {
 .about.is__resturant .about__images {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 5px;
   position: relative;
-  left: -65%;
+  left: -15%;
 }
 
 @media screen and (max-width: 1400px) {
@@ -10742,7 +10742,7 @@ picture.jarallax-img img {
 
 .about.is__resturant .about__images .image__left img,
 .about.is__resturant .about__images .image__right img {
-  min-width: 428px;
+  min-width: 328px;
 }
 
 @media screen and (max-width: 992px) {
@@ -10830,6 +10830,7 @@ picture.jarallax-img img {
   height: 100%;
   min-width: 100%;
   border-radius: 6px;
+ 
 }
 
 .room__slide__box .room__thumbnail {
@@ -10838,10 +10839,11 @@ picture.jarallax-img img {
   height: 100%;
   width: 100%;
   border-radius: 6px;
+  
 }
 
 .room__slide__box .room__thumbnail::before {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%); */
   border-radius: 6px;
   transition: var(--transition);
 }
@@ -11982,7 +11984,8 @@ picture.jarallax-img img {
 
   .single__offer__card.is__flex a {
     display: block;
-    width: 100%;
+    width: 90%;
+    text-align: center;
   }
 }
 

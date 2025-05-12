@@ -178,7 +178,9 @@
 // }
 
 // export default RoomTwo;
- import React, { useEffect, useState, Suspense } from 'react';
+
+
+import React, { useEffect, useState, Suspense } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Core Swiper styles
 import { Pagination, Autoplay } from 'swiper/modules';
@@ -193,12 +195,49 @@ import { getSimilarRoom } from '../../api/getSimilarRoom';
 const RoomCardOne = React.lazy(() => import('./RoomCardOne'));
 
 // Image lazy loading component
+// const LazyImage = ({ src, alt, className }) => {
+//   const [isLoaded, setIsLoaded] = useState(false);
+//   const [inView, setInView] = useState(false);
+  
+//   useEffect(() => {
+//     // Use Intersection Observer to detect when element is in viewport
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setInView(true);
+//           observer.disconnect();
+//         }
+//       },
+//       { rootMargin: '200px' } // Start loading image when it's 200px from viewport (increased for better UX)
+//     );
+    
+//     // Create a unique ID based on src URL
+//     const uniqueId = src ? `lazy-img-${src.split('/').pop().substring(0, 10)}` : 'lazy-img-placeholder';
+//     const currentElem = document.getElementById(uniqueId);
+    
+//     if (currentElem) {
+//       observer.observe(currentElem);
+//     }
+    
+//     return () => {
+//       if (currentElem) {
+//         observer.unobserve(currentElem);
+//       }
+//     };
+//   }, [src]);
+  
+//   // Create a unique ID based on src URL
+//   const uniqueId = src ? `lazy-img-${src.split('/').pop().substring(0, 10)}` : 'lazy-img-placeholder';
+
 const LazyImage = ({ src, alt, className }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [inView, setInView] = useState(false);
-  
+  const imgRef = React.useRef();
+
   useEffect(() => {
-    // Use Intersection Observer to detect when element is in viewport
+    setIsLoaded(false); // reset when src changes
+    setInView(false);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -206,39 +245,26 @@ const LazyImage = ({ src, alt, className }) => {
           observer.disconnect();
         }
       },
-      { rootMargin: '200px' } // Start loading image when it's 200px from viewport (increased for better UX)
+      { rootMargin: '200px' }
     );
-    
-    // Create a unique ID based on src URL
-    const uniqueId = src ? `lazy-img-${src.split('/').pop().substring(0, 10)}` : 'lazy-img-placeholder';
-    const currentElem = document.getElementById(uniqueId);
-    
+
+    const currentElem = imgRef.current;
     if (currentElem) {
       observer.observe(currentElem);
     }
-    
+
     return () => {
-      if (currentElem) {
-        observer.unobserve(currentElem);
-      }
+      if (currentElem) observer.unobserve(currentElem);
     };
   }, [src]);
   
-  // Create a unique ID based on src URL
-  const uniqueId = src ? `lazy-img-${src.split('/').pop().substring(0, 10)}` : 'lazy-img-placeholder';
-  
   return (
-    <div className={`lazy-image-container ${className || ''}`}>
-      <div 
-        id={uniqueId} 
-        className="image-placeholder"
-      >
-        {!isLoaded && <Skeleton height="100%" />}
-      </div>
+    <div className={`lazy-image-container ${className || ''}`} ref={imgRef}>
+      {!isLoaded && <Skeleton height="100%" />}
       {inView && (
-        <img 
-          src={src} 
-          alt={alt || "Room image"} 
+        <img
+          src={src}
+          alt={alt || "Room image"}
           style={{ opacity: isLoaded ? 1 : 0 }}
           onLoad={() => setIsLoaded(true)}
           className="lazy-loaded-image"

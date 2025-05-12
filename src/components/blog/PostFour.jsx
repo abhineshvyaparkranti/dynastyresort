@@ -50,7 +50,7 @@ function PostFour({
         <p>{shortText}</p>
         <div className="single__blog__meta__main">
           <div className="author__meta">
-            <Link to="#">
+            {/* <Link to="#">
               <img
                 src={`assets/images/author/${authorImg || 'default-user.jpg'}`}
                 height={40}
@@ -58,7 +58,7 @@ function PostFour({
                 alt={blogAuthor || 'Author'}
               />
               {blogAuthor || 'Amin'}
-            </Link>
+            </Link> */}
             <span>
               <img src="assets/images/icon/clock.svg" alt="Read time" />
               &nbsp;{blogPublishedDate || '10 Min Read'}

@@ -65,6 +65,7 @@ function RoomCardOne(props) {
         <img
             height={585}
             width={420}
+            style={{ objectFit: 'inherit !important' }}
             className="radius-6 jarallax-img"
             src={roomImage}
             alt={roomTitle || 'Room Image'}
@@ -93,7 +94,7 @@ function RoomCardOne(props) {
                     onClick={ClickHandler}
                 >
                     <h5 style={{fontSize: '1.8rem', fontweight: '400',
-    fontfamily: 'var(--glida)'}}>{roomTitle || 'The Ritz-Carlton'}</h5>
+    fontfamily: 'var(--glida)', color: 'white'}}>{roomTitle || 'The Ritz-Carlton'}</h5>
                 </Link>
                 <div className="room__content__meta">
                     <span><i className="flaticon-construction" /> {roomSize} sqm</span>

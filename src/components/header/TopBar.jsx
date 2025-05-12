@@ -35,14 +35,14 @@ function TopBar() {
               {loading || !topHeader ? (
                 <Skeleton width={250} height={20} />
               ) : (
-                <Link className="link__item gap-10" to={`tel:${topHeader.mobile}`}>
+                <Link className="link__item gap-10" style={{fontWeight: 'bold'}} to={`tel:${topHeader.mobile}`}>
                   <i className="flaticon-phone-flip" /> {topHeader.mobile}
                 </Link>
               )}
               {loading || !topHeader ? (
                 <Skeleton width={200} height={20} />
               ) : (
-                <Link className="link__item gap-10" to={`mailto:${topHeader.mail}`}>
+                <Link className="link__item gap-10" style={{fontWeight: 'bold'}} to={`mailto:${topHeader.mail}`}>
                   <i className="flaticon-envelope" /> {topHeader.mail}
                 </Link>
               )}
@@ -53,7 +53,7 @@ function TopBar() {
               {loading || !topHeader ? (
                 <Skeleton width={300} height={20} />
               ) : (
-                <Link className="link__item gap-10" to="/">
+                <Link className="link__item gap-10" style={{fontWeight: 'bold'}} to="/">
                   <i className="flaticon-marker" /> {topHeader.address}
                 </Link>
               )}

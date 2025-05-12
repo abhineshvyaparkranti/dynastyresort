@@ -24,7 +24,7 @@ function Package() {
  
         title="Package"
         description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
-        bannerType="offer"
+        bannerType="packages"
         useApiHeading={true}
         useApiDescription={true}
       />

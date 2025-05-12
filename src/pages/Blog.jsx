@@ -11,10 +11,19 @@ function Blog() {
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbTwoCommon
+        {/* <BreadcrumbTwoCommon
             title="Our Blog" 
             description="Discover The blog where luxury, comfort, and adventure come together."
-        />
+        /> */}
+
+         <BreadcrumbOne
+ 
+        title="Our Blog"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="blog"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
         <BlogThree />
         <FooterOne />
 

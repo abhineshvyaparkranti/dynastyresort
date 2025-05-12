@@ -19,7 +19,7 @@ function Resturant() {
         />
         <AboutSeven />
         <GalleryFour />
-        <FoodMenuOne />
+        {/* <FoodMenuOne /> */}
         <TestimonialSix className="section__padding"/>
         <FooterOne />
     </div>

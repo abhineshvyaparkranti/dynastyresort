@@ -33,6 +33,11 @@ function HeaderOne() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const [isOpen, setIsOpen] = useState(false);
+
+  // Toggle the visibility of the submenu
+  const toggleDropdown = () => setIsOpen(prevState => !prevState);
     return (
         <>
             {/* header menu */}
@@ -48,9 +53,9 @@ function HeaderOne() {
                                              <li className="navigation__menu--item">
                                                 <Link
                                                     to="/"
-                                                    className="navigation__menu--item__link"
+                                                    className="navigation__menu--item__link theme-btn btn-style sm-btn fill"
                                                 >
-                                                    Home
+                                                   <span>Home</span>  
                                                 </Link>
                                             </li>
                                             {/* <li className="navigation__menu--item has-child has-arrow">
@@ -164,8 +169,8 @@ function HeaderOne() {
                                                 </Link>
                                             </li> */}
                                             <li className="navigation__menu--item has-child ">
-                                                <Link to="/room-two" className="navigation__menu--item__link">
-                                                    Rooms
+                                                <Link to="/room-two" className="navigation__menu--item__link theme-btn btn-style sm-btn fill">
+                                                    <span>Rooms</span> 
                                                 </Link>
                                                 {/* <ul className="submenu sub__style" role="menu">
                                                     <li role="menuitem" className="has-child has-arrow">
@@ -246,32 +251,36 @@ function HeaderOne() {
                                                 </Link>
                                             </li> */}
 
-                                             <li className="navigation__menu--item has-child has-arrow">
-                                                <Link to="#" className="navigation__menu--item__link">
-                                                    Mice
-                                                </Link>
-                                                <ul className="submenu sub__style" role="menu">
-                                                    <li role="menuitem">
-                                                        <Link to="/mice-business">Business Conference</Link>
-                                                    </li>
-                                                    <li role="menuitem">
-                                                        <Link to="/mice-wedding">Wedding</Link>
-                                                    </li>
-                                                    <li role="menuitem">
-                                                        <Link to="/mice-sastang">Satsang</Link>
-                                                    </li>
-                                                    {/* <li role="menuitem">
-                                                        <Link to="/service">Service</Link>
-                                                    </li>
-                                                    <li role="menuitem">
-                                                        <Link to="/event">Event</Link>
-                                                    </li>
-                                                    <li role="menuitem">
-                                                        <Link to="/activities">Activities</Link>
-                                                    </li> */}
-                                                </ul>
-                                            </li>
+                                               <li className="navigation__menu--item has-child  ">
+      {/* Button for Mice with a click event to toggle submenu */}
+      <button
+        className="navigation__menu--item__link theme-btn btn-style sm-btn fill has-arrow"
+        onClick={toggleDropdown}
+      >
+        <span>Mice</span>
 
+        {/* Icon inside the button */}
+        <span className="dropdown-icon">
+          {/* Replace with your desired icon */}
+          <i className={`arrow-icon ${isOpen ? 'open' : ''}`}></i>
+        </span>
+      </button>
+
+      {/* Submenu that shows when isOpen is true */}
+      {isOpen && (
+        <ul className="submenu sub__style" role="menu">
+          <li role="menuitem">
+            <Link to="/mice-business">Business Conference</Link>
+          </li>
+          <li role="menuitem">
+            <Link to="/mice-wedding">Wedding</Link>
+          </li>
+          <li role="menuitem">
+            <Link to="/mice-satsang">Satsang</Link>
+          </li>
+        </ul>
+      )}
+    </li>
                                             {/* <li className="navigation__menu--item">
                                                 <Link
                                                     to="/event"
@@ -284,18 +293,18 @@ function HeaderOne() {
                                               <li className="navigation__menu--item">
                                                 <Link
                                                     to="/package"
-                                                    className="navigation__menu--item__link"
+                                                    className="navigation__menu--item__link theme-btn btn-style sm-btn fill"
                                                 >
-                                                    Packages
+                                                    <span>Packages</span> 
                                                 </Link>
                                             </li>
 
                                              <li className="navigation__menu--item">
                                                 <Link
                                                     to="/guestexperience"
-                                                    className="navigation__menu--item__link"
+                                                    className="navigation__menu--item__link theme-btn btn-style sm-btn fill"
                                                 >
-                                                    Experience
+                                                    <span>Experience</span> 
                                                 </Link>
                                             </li>
 
@@ -307,14 +316,14 @@ function HeaderOne() {
                                                     Activities
                                                 </Link>
                                             </li> */}
-                                             <li className="navigation__menu--item">
+                                             {/* <li className="navigation__menu--item">
                                                 <Link
                                                     to="/gallery"
                                                     className="navigation__menu--item__link"
                                                 >
                                                     Gallery
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                             {/* <li className="navigation__menu--item">
                                                 <Link
                                                     to="/contact"
@@ -327,18 +336,18 @@ function HeaderOne() {
                                              <li className="navigation__menu--item">
                                                 <Link
                                                     to="/wedding"
-                                                    className="navigation__menu--item__link"
+                                                    className="navigation__menu--item__link theme-btn btn-style sm-btn fill"
                                                 >
-                                                    Wedding
+                                                    <span>Wedding</span> 
                                                 </Link>
                                             </li>
 
                                              <li className="navigation__menu--item">
                                                 <Link
                                                     to="/offer"
-                                                    className="navigation__menu--item__link"
+                                                    className="navigation__menu--item__link theme-btn btn-style sm-btn fill"
                                                 >
-                                                    Offer 
+                                                    <span>Offer</span>  
                                                 </Link>
                                             </li>
 

@@ -14,10 +14,20 @@ function Service() {
     <div>
         <TopBar />
         <HeaderOne />
-        <BreadcrumbTwoCommon 
+        {/* <BreadcrumbTwoCommon 
             title="Our Service" 
             description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
-        />
+        /> */}
+
+         <BreadcrumbOne
+ 
+        title="Our Service"
+        description="At Dynasty Resort we pride ourselves on delivering an exceptional experience."
+        bannerType="service"
+        useApiHeading={true}
+        useApiDescription={true}
+      />
+        
         <ServiceFive />
         <ServiceOne />
         <TestimonialFive />

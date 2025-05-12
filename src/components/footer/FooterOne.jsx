@@ -215,6 +215,7 @@ import Newslatter from './Newslatter';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { getContact } from '../../api/getContact';
+import Gallery from './../../pages/Gallery';
 
 function FooterOne() {
   const [contact, setContact] = useState(null);
@@ -301,13 +302,15 @@ function FooterOne() {
                    
                    <li><Link to="/about">About Us</Link></li>
                   <li><Link to="/activities">Activities</Link></li>
-                  {/* <li><Link to="/resturant">Restaurant</Link></li> */}
+                   
                   <li><Link to="/blog">Blog</Link></li>
                   <li><Link to="/contact">Contact Us</Link></li>
+                   <li><Link to="/gallery">Gallery</Link></li>
                   {/* <li><Link to="/termscondition">Terms & Conditions</Link></li> */}
                   {/* <li><Link to="/privacy">Privacy Policy</Link></li> */}
                   {/* <li><Link to="/refund">Refund Cancellation Policy</Link></li> */}
                   <li><Link to="/service">Our Service</Link></li>
+                  <li><Link to="/resturant">Restaurant</Link></li>
                 </ul>
               </div>
 

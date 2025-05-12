@@ -397,7 +397,7 @@ function BlogDetailsMain() {
                                     {blogPost.title}
                                 </h1>
                                 <div className="author__meta wow fadeInUp">
-                                    <Link to="#">
+                                    {/* <Link to="#">
                                         <img
                                             src="/assets/images/author/3.webp"
                                             height={40}
@@ -405,7 +405,7 @@ function BlogDetailsMain() {
                                             alt="Author"
                                         />
                                         {blogPost.created_by || "Admin"}
-                                    </Link>
+                                    </Link> */}
                                     <span>
                                         <img src="/assets/images/icon/clock.svg" alt="Clock" /> 
                                         {blogPost.read_time || "10 Min Read"}

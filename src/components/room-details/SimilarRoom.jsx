@@ -235,7 +235,7 @@ function SimilarRoom() {
                 ) : rooms && rooms.length > 0 ? (
                     <div className="row g-30">
                         {rooms.slice(0, 3).map((room, index) => (
-                            <div key={room.id || index} className="col-xl-4 col-lg-6 col-md-6">
+                            <div key={room.id || index} className="col-xl-4 col-lg-6 col-md-6" style={{paddingBottom: '10px'}}>
                                 <RoomCardFour
                                     roomID={room.id}
                                     roomImage={room.banner_image || getFirstImage(room.images)}
