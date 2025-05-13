@@ -167,7 +167,7 @@ function AboutTwo() {
                                     <i className="flaticon-people" />
                                 </div>
                                 <div className="content">
-                                    <span className="h5">50+</span>
+                                    <span className="h5">100+</span>
                                     <p>Experience Staff</p>
                                 </div>
                             </div>

@@ -14,6 +14,7 @@ import FooterOne from '../components/footer/FooterOne'
 import posts from '../components/data/data-room.json'
 import HomeRoom from '../components/room-details/HomeRoom'
 import BookingModal from '../components/header/BookingModal'
+import AwardsSection from '../components/award/AwardsSection';
  
  
  
@@ -21,6 +22,7 @@ import BookingModal from '../components/header/BookingModal'
 function HomeTwo() {
 
   const [showBookingModal, setShowBookingModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
   const hasShown = sessionStorage.getItem('bookingShown');
@@ -54,7 +56,9 @@ function HomeTwo() {
         <VideoTwo />
         <OfferTwo />
         <GalleryTwo limit={4} />
-        <BookingModal show={showBookingModal} handleClose={handleCloseBooking} />
+        {/* <BookingModal show={showBookingModal} handleClose={handleCloseBooking} /> */}
+        <BookingModal show={showModal} handleClose={setShowModal} autoShowTime={20000} />
+        <AwardsSection />
         <FooterOne />
     </div>
   )

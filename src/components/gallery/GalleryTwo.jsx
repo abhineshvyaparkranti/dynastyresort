@@ -348,7 +348,7 @@ function GalleryTwo() {
 
     return (
         <>
-            <div className="rts__section pb-120">
+            <div className="rts__section pb-60">
                 <div className="container">
                     <div className="row position-relative justify-content-center text-center mb-30">
                         <div className="col-lg-6 wow fadeInUp">
