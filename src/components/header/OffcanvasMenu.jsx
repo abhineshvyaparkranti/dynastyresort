@@ -87,9 +87,9 @@ function OffcanvasMenu({ isOpen, onClose }) {
                                         </li>
 
                                         {/* About Us */}
-                                        <li className="slide">
+                                        {/* <li className="slide">
                                             <Link className="slide__menu__item" to="/about">About us</Link>
-                                        </li>
+                                        </li> */}
 
                                          <li className="slide">
                                             <Link className="slide__menu__item" to="/room-two"> Rooms</Link>

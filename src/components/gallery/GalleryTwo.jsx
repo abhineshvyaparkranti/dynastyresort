@@ -348,6 +348,23 @@ function GalleryTwo() {
 
     return (
         <>
+        {/* Internal CSS for mobile fixes */}
+            <style>{`
+                @media (max-width: 575.98px) {
+                    .gallery__item {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .gallery__item img {
+                        margin: 0 auto;
+                        display: block;
+                    }
+                    .swiper-slide {
+                        margin-right: 0 !important;
+                    }
+                }
+            `}</style>
             <div className="rts__section pb-60">
                 <div className="container">
                     <div className="row position-relative justify-content-center text-center mb-30">
@@ -362,27 +379,43 @@ function GalleryTwo() {
                         {loading ? (
                             <LoadingSkeleton />
                         ) : (
-                            <Swiper
-                                className="gallery__slider overflow-hidden gallery"
-                                direction="horizontal"
-                                slidesPerView={4}
-                                spaceBetween={30}
-                                grabCursor={true}
-                                loop={true}
-                                centeredSlides={false}
-                                autoplay={{
-                                    delay: 3000,
-                                }}
-                                speed={1000}
-                                effect="slide"
-                                breakpoints={{
-                                    0: { slidesPerView: 1 },
-                                    575: { slidesPerView: 2 },
-                                    768: { slidesPerView: 3 },
-                                    1200: { slidesPerView: 3 },
-                                    1400: { slidesPerView: 4 },
-                                }}
-                            >
+                           <Swiper
+                            className="gallery__slider overflow-hidden gallery"
+                            direction="horizontal"
+                            slidesPerView={4}
+                            spaceBetween={30}
+                            grabCursor={true}
+                            loop={true}
+                            autoplay={{
+                                delay: 3000,
+                            }}
+                            speed={1000}
+                            effect="slide"
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 0,
+                                    centeredSlides: true, // <- Optional, for center alignment
+                                },
+                                575: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 15,
+                                },
+                                768: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 30,
+                                },
+                                1200: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 30,
+                                },
+                                1400: {
+                                    slidesPerView: 4,
+                                    spaceBetween: 30,
+                                },
+                            }}
+                        >
+
                                 {gallery.length > 0 ? (
                                     gallery.map((item, index) => (
                                         <SwiperSlide key={index}>

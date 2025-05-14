@@ -188,3 +188,132 @@ const AwardsSection = () => {
 };
 
 export default AwardsSection;
+ 
+//   import React, { useEffect, useState } from 'react';
+// import { getAwards } from '../../api/getAwards';
+
+// const AwardsSection = () => {
+//   const [awards, setAwards] = useState([]);
+//   const [startIndex, setStartIndex] = useState(0);
+//   const [loading, setLoading] = useState(true);
+//   const [isMobile, setIsMobile] = useState(false);
+  
+//   // Desktop shows 5 cards, mobile shows 1
+//   const visibleCount = isMobile ? 1 : 5;
+
+//   // Check if device is mobile
+//   useEffect(() => {
+//     const checkIfMobile = () => {
+//       setIsMobile(window.innerWidth < 576); // sm breakpoint
+//     };
+    
+//     // Initial check
+//     checkIfMobile();
+    
+//     // Add event listener for window resize
+//     window.addEventListener('resize', checkIfMobile);
+    
+//     // Clean up event listener
+//     return () => window.removeEventListener('resize', checkIfMobile);
+//   }, []);
+
+//   // We'll use the actual getAwards function imported from the API
+
+//   // Fetch awards from API
+//   useEffect(() => {
+//     getAwards()
+//       .then((data) => {
+//         if (data?.awards) {
+//           // Sort awards by the `sorting` key before setting them
+//           const sortedAwards = [...data.awards].sort((a, b) => a.sorting - b.sorting);
+//           setAwards(sortedAwards);
+//           console.log("data awards=============>", sortedAwards );
+//         }
+//       })
+//       .catch((err) => {
+//         console.error('Error fetching awards:', err);
+//       })
+//       .finally(() => setLoading(false));
+//   }, []);
+
+//   // Auto-scroll behavior
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setStartIndex((prevIndex) =>
+//         awards.length > 0 ? (prevIndex + 1) % awards.length : 0
+//       );
+//     }, 3000);
+//     return () => clearInterval(interval);
+//   }, [awards]);
+
+//   // Get currently visible awards
+//   const getVisibleAwards = () => {
+//     const endIndex = startIndex + visibleCount;
+//     if (endIndex <= awards.length) {
+//       return awards.slice(startIndex, endIndex);
+//     } else {
+//       return [...awards.slice(startIndex), ...awards.slice(0, endIndex - awards.length)];
+//     }
+//   };
+
+//   // Loading skeleton
+//   const LoadingSkeleton = () => {
+//     return Array.from({ length: isMobile ? 1 : visibleCount }).map((_, idx) => (
+//       <div key={idx} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 px-2">
+//         <div className="h-48 bg-gray-200 rounded animate-pulse"></div>
+//       </div>
+//     ));
+//   };
+
+//   // Award card component
+//   const AwardCard = ({ award }) => (
+//     <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 px-2 mb-4">
+//       <div className="h-full bg-white rounded shadow-sm p-3 text-center">
+//         <div className="flex justify-center">
+//           <img
+//             src={award.image}
+//             alt={`Award ${award.id}`}
+//             loading="lazy"
+//             className="w-32 h-40 object-contain mx-auto"
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   );
+
+//   // Indicators for mobile carousel
+//   const renderIndicators = () => {
+//     if (!isMobile || loading || awards.length === 0) return null;
+    
+//     return (
+//       <div className="flex justify-center mt-3">
+//         {awards.map((_, idx) => (
+//           <button
+//             key={idx}
+//             className={`mx-1 rounded-full w-2 h-2 ${
+//               idx === startIndex ? "bg-blue-600" : "bg-gray-400"
+//             }`}
+//             onClick={() => setStartIndex(idx)}
+//             aria-label={`Go to slide ${idx + 1}`}
+//           />
+//         ))}
+//       </div>
+//     );
+//   };
+
+//   return (
+//     <div className="container mx-auto my-8 px-4">
+//       <h2 className="text-2xl text-center mb-4 font-bold">Awards & Recognition</h2>
+//       <div className="flex flex-wrap -mx-2 justify-center">
+//         {loading ? (
+//           <LoadingSkeleton />
+//         ) : (
+//           getVisibleAwards().map((award) => <AwardCard key={award.id} award={award} />)
+//         )}
+//       </div>
+//       {renderIndicators()}
+//     </div>
+//   );
+// };
+
+// export default AwardsSection;

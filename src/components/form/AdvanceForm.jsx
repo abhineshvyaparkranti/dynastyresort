@@ -135,14 +135,12 @@
 
 // export default AdvanceForm;
 
- 
-
-import React, { useState, useEffect } from 'react';
+  import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import WOW from 'wowjs';
 import BookingModal from '../header/BookingModal';
-import { postEnquiryRoom } from '../../api/postEnquiryRoom'; // adjust path if needed
+import { postEnquiryRoom } from '../../api/postEnquiryRoom';
 
 function AdvanceForm() {
   useEffect(() => {
@@ -158,6 +156,11 @@ function AdvanceForm() {
 
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
+
+  const formatDate = (date) => {
+    if (!date) return null;
+    return date.toISOString().split('T')[0]; // YYYY-MM-DD
+  };
 
   const validate = () => {
     const newErrors = {};
@@ -176,13 +179,16 @@ function AdvanceForm() {
 
     const payload = {
       name,
-      phone,
-      checkInDate,
-      checkOutDate,
+      phone_no: phone.trim(),
+      checkIn: formatDate(checkInDate),
+      checkOut: formatDate(checkOutDate),
     };
 
+    console.log('Submitting payload enquiry==============>:', payload);
+
     try {
-      await postEnquiryRoom(payload);
+      const res = await postEnquiryRoom(payload);
+      console.log("Submission Success:", res);
       alert('Enquiry submitted successfully!');
       setName('');
       setPhone('');
@@ -190,15 +196,18 @@ function AdvanceForm() {
       setCheckOutDate(null);
       setErrors({});
     } catch (error) {
+      console.error('Submission Error:', error.response?.data || error.message);
       alert('Failed to submit enquiry. Please try again.');
     }
   };
 
   return (
+    <> 
+    
     <div className="rts__section advance__search__section is__home__one">
       <div className="container">
         <div className="row">
-          <form className="advance__search" onSubmit={handleSubmit}>
+          <form className="advance__search" onSubmit={handleSubmit}  >
             <div className="advance__search__wrapper wow fadeInUp">
               {/* Check In */}
               <div className="query__input">
@@ -261,12 +270,13 @@ function AdvanceForm() {
                 <span>Check Now</span>
               </button>
 
-              <BookingModal show={showModal} handleClose={handleClose} />
+              {/* <BookingModal show={showModal} handleClose={handleClose} /> */}
             </div>
           </form>
         </div>
       </div>
     </div>
+    </>
   );
 }
 

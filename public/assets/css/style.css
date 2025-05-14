@@ -10506,7 +10506,7 @@ picture.jarallax-img img {
 
 @media screen and (max-width: 992px) {
   .about__images .image__right {
-    margin-left: 200px;
+    margin-left: 110px;
   }
 }
 
@@ -10519,7 +10519,7 @@ picture.jarallax-img img {
 
 @media screen and (max-width: 576px) {
   .about__images .image__right {
-    margin-left: 0;
+    margin-left: 0px;
     margin-top: 0;
   }
 }
@@ -10830,6 +10830,7 @@ picture.jarallax-img img {
   height: 100%;
   min-width: 100%;
   border-radius: 6px;
+  padding: 5px;
  
 }
 
