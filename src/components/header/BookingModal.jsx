@@ -559,7 +559,7 @@ function BookingModal({ show, handleClose, autoShowTime = null }) {
                     alt="Special promotion"
                     className="img-fluid rounded shadow"
                     loading="lazy"
-                    style={{ minHeight: '150px' }} // Prevent layout shift
+                    style={{ minHeight: '350px', minWidth: '250px', maxWidth: '250px', maxHeight: '400px' }} // Prevent layout shift
                   />
                 )}
               </div>

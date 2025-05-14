@@ -252,35 +252,35 @@ function HeaderOne() {
                                             </li> */}
 
                                                <li className="navigation__menu--item has-child  ">
-      {/* Button for Mice with a click event to toggle submenu */}
-      <button
-        className="navigation__menu--item__link theme-btn btn-style sm-btn fill has-arrow"
-        onClick={toggleDropdown}
-      >
-        <span>Mice</span>
+                                        {/* Button for Mice with a click event to toggle submenu */}
+                                        <button
+                                            className="navigation__menu--item__link theme-btn btn-style sm-btn fill has-arrow"
+                                            onClick={toggleDropdown}
+                                        >
+                                            <span>Mice</span>
 
-        {/* Icon inside the button */}
-        <span className="dropdown-icon">
-          {/* Replace with your desired icon */}
-          <i className={`arrow-icon ${isOpen ? 'open' : ''}`}></i>
-        </span>
-      </button>
+                                            {/* Icon inside the button */}
+                                            <span className="dropdown-icon">
+                                            {/* Replace with your desired icon */}
+                                            <i className={`arrow-icon ${isOpen ? 'open' : ''}`}></i>
+                                            </span>
+                                        </button>
 
-      {/* Submenu that shows when isOpen is true */}
-      {isOpen && (
-        <ul className="submenu sub__style" role="menu">
-          <li role="menuitem">
-            <Link to="/mice-business">Business Conference</Link>
-          </li>
-          <li role="menuitem">
-            <Link to="/mice-wedding">Wedding</Link>
-          </li>
-          <li role="menuitem">
-            <Link to="/mice-satsang">Satsang</Link>
-          </li>
-        </ul>
-      )}
-    </li>
+                                        {/* Submenu that shows when isOpen is true */}
+                                        {isOpen && (
+                                            <ul className="submenu sub__style" role="menu">
+                                            <li role="menuitem">
+                                                <Link to="/mice-business">Business Conference</Link>
+                                            </li>
+                                            <li role="menuitem">
+                                                <Link to="/mice-wedding">Wedding</Link>
+                                            </li>
+                                            <li role="menuitem">
+                                                <Link to="/mice-sastang">Satsang</Link>
+                                            </li>
+                                            </ul>
+                                        )}
+                                        </li>
                                             {/* <li className="navigation__menu--item">
                                                 <Link
                                                     to="/event"
