@@ -216,6 +216,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { getContact } from '../../api/getContact';
 import Gallery from './../../pages/Gallery';
+import { FaXTwitter } from 'react-icons/fa6';
 
 function FooterOne() {
   const [contact, setContact] = useState(null);
@@ -232,7 +233,7 @@ function FooterOne() {
   const icons = [
     { key: 'facebook', Icon: FaFacebookF, url: contact?.facebook },
     { key: 'instagram', Icon: FaInstagram, url: contact?.instagram },
-    { key: 'twitter', Icon: FaTwitter, url: contact?.twitter },
+    { key: 'twitter', Icon: FaXTwitter, url: contact?.twitter },
     { key: 'linkedin', Icon: FaLinkedinIn, url: contact?.linkedin },
     { key: 'youtube', Icon: FaYoutube, url: contact?.youtube },
   ];

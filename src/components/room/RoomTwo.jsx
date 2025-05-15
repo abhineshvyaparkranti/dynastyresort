@@ -180,6 +180,212 @@
 // export default RoomTwo;
 
 
+//  import React, { useEffect, useState, useRef } from 'react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import 'swiper/swiper-bundle.css'; // Core Swiper styles
+// import { Pagination } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/scrollbar';
+// import RoomCardOne from './RoomCardOne';
+// import { getSimilarRoom } from '../../api/getSimilarRoom'; 
+// import Skeleton from 'react-loading-skeleton';
+// import 'react-loading-skeleton/dist/skeleton.css';
+// import WOW from 'wowjs';
+
+// function RoomTwo() {
+//     const [posts, setPosts] = useState([]);
+//     const [loading, setLoading] = useState(true);
+//     const [error, setError] = useState(null);
+//     const contentLoaded = useRef(false);
+//     const wowInitialized = useRef(false);
+//     const swiperRef = useRef(null);
+
+//     // Fetch room data
+//     useEffect(() => {
+//         setLoading(true);
+//         getSimilarRoom()
+//             .then(data => {
+//                 if (data && data.rooms) {
+//                     console.log('Fetched room data:', data.rooms);
+//                     setPosts(data.rooms);
+//                     contentLoaded.current = true;
+//                 } else {
+//                     setError('Invalid data format received.');
+//                 }
+//                 setLoading(false);
+//             })
+//             .catch(err => {
+//                 console.error('Error fetching rooms:', err);
+//                 setError('Failed to fetch rooms. Please try again.');
+//                 setLoading(false);
+//             });
+//     }, []);
+
+//     // Initialize or reinitialize WOW.js after content loads
+//     useEffect(() => {
+//         if (!loading && contentLoaded.current && !wowInitialized.current) {
+//             // Small delay to ensure DOM is fully rendered with content
+//             const timer = setTimeout(() => {
+//                 const wow = new WOW.WOW({
+//                     boxClass: 'wow',
+//                     animateClass: 'animated',
+//                     offset: 0,
+//                     mobile: true,
+//                     live: false
+//                 });
+//                 wow.init();
+                
+//                 // Force WOW to re-scan the DOM to find all elements
+//                 if (typeof wow.sync === 'function') {
+//                     wow.sync();
+//                 }
+                
+//                 wowInitialized.current = true;
+                
+//                 // Add observer for any future content changes
+//                 const observer = new MutationObserver((mutations) => {
+//                     if (wowInitialized.current && typeof window.WOW === 'function') {
+//                         // Small delay to allow DOM to settle
+//                         setTimeout(() => {
+//                             if (typeof wow.sync === 'function') {
+//                                 wow.sync();
+//                             }
+//                         }, 100);
+//                     }
+//                 });
+                
+//                 // Start observing content changes in the room slider
+//                 const container = document.querySelector('.room__slider');
+//                 if (container) {
+//                     observer.observe(container, { 
+//                         childList: true, 
+//                         subtree: true,
+//                         attributes: true
+//                     });
+//                 }
+
+//                 return () => {
+//                     observer.disconnect();
+//                 };
+//             }, 300);
+            
+//             return () => clearTimeout(timer);
+//         }
+//     }, [loading, posts]); // Added posts as dependency to re-trigger when data arrives
+
+//     // Manually update Swiper after content loads
+//     useEffect(() => {
+//         if (posts.length > 0 && swiperRef.current && swiperRef.current.swiper) {
+//             setTimeout(() => {
+//                 swiperRef.current.swiper.update();
+//             }, 100);
+//         }
+//     }, [posts]);
+
+//     const getFirstImage = (imagesString) => {
+//         try {
+//             if (!imagesString) return '';
+//             const images = JSON.parse(imagesString);
+//             return Array.isArray(images) && images.length > 0 ? images[0] : '';
+//         } catch (err) {
+//             console.error("Error parsing image JSON:", err);
+//             return '';
+//         }
+//     };
+
+//     return (
+//         <>
+//             {/* our room */}
+//             <div className="rts__section section__padding">
+//                 <div className="container">
+//                     <div className="row">
+//                         <div className="section__wrapper mb-40 wow fadeInUp" data-wow-duration="1s">
+//                             <div className="section__content__left">
+//                                 <span className="h6 subtitle__icon__two d-block wow fadeInUp" data-wow-duration="1.2s">
+//                                     Room
+//                                 </span>
+//                                 <h2 className="content__title h2 lh-1">Our Rooms</h2>
+//                             </div>
+//                             <div className="section__content__right">
+//                                 <p>
+//                                     Our rooms offer a harmonious blend of comfort and elegance,
+//                                     designed to provide an exceptional stay for every guest...
+//                                 </p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                     {/* row end */}
+//                     <div className="row">
+//                         {loading ? (
+//                             <div className="text-center">
+//                                 <Skeleton count={3} height={300} />
+//                             </div>
+//                         ) : error ? (
+//                             <p className="text-center text-danger">{error}</p>
+//                         ) : posts.length === 0 ? (
+//                             <p className="text-center">No rooms available</p>
+//                         ) : (
+//                             <div className="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">
+//                                 <Swiper
+//                                     ref={swiperRef}
+//                                     className="room__slider overflow-hidden"
+//                                     modules={[Pagination]}
+//                                     slidesPerView={3}
+//                                     spaceBetween={30}
+//                                     loop={posts.length > 1}
+//                                     centeredSlides={posts.length > 2}
+//                                     autoplay={false}
+//                                     pagination={{
+//                                         el: ".rts-pagination",
+//                                         clickable: true,
+//                                     }}
+//                                     speed={1000}
+//                                     breakpoints={{
+//                                         0: { slidesPerView: 1 },
+//                                         575: { slidesPerView: 1 },
+//                                         768: { slidesPerView: 2 },
+//                                         1200: { slidesPerView: 3 },
+//                                         1400: { slidesPerView: 3 },
+//                                     }}
+//                                     onUpdate={(swiper) => {
+//                                         console.log("Swiper updated");
+//                                     }}
+//                                 >
+//                                     {Array.isArray(posts) && posts.map((data, index) => (
+//                                         <SwiperSlide key={data.id || index}>
+//                                             <div className="wow fadeInUp" data-wow-duration="1.8s" data-wow-delay={`${(index + 1) * 0.2}s`}>
+//                                                 <RoomCardOne
+//                                                     roomID={data.id}
+//                                                     roomImage={data.banner_image || getFirstImage(data.images)}
+//                                                     roomTitle={data.title}
+//                                                     roomPrice={data.price}
+//                                                     roomSize={data.size}
+//                                                     roomCapacity={data.person_allow}
+//                                                 />
+//                                             </div>
+//                                         </SwiperSlide>
+//                                     ))}
+//                                 </Swiper>
+//                             </div>
+//                         )}
+
+//                         {/* pagination button */}
+//                         <div className="rts__pagination">
+//                             <div className="rts-pagination" />
+//                         </div>
+//                         {/* pagination button end */}
+//                     </div>
+//                 </div>
+//             </div>
+//             {/* our room end */}
+//         </>
+//     );
+// }
+
+// export default RoomTwo;
+
+
 import React, { useEffect, useState, Suspense } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Core Swiper styles
@@ -409,7 +615,7 @@ function RoomTwo() {
                                 data-wow-delay=".5s"
                                 modules={[Pagination, Autoplay]}
                                 slidesPerView={3}
-                                spaceBetween={30}
+                                spaceBetween={0}
                                 loop={shouldEnableAutoplay}
                                 centeredSlides={false}
                                 autoplay={shouldEnableAutoplay ? {
@@ -435,7 +641,7 @@ function RoomTwo() {
                                 }}
                             >
                                 {posts.map((data) => (
-                                    <SwiperSlide key={data.id}>
+                                    <SwiperSlide key={data.id}  >
                                         {visibleSlides.includes(data.id) ? (
                                             <LazyRoomCard
                                                 roomID={data.id}
@@ -471,6 +677,9 @@ function RoomTwo() {
 
             {/* CSS for lazy loading */}
             <style jsx>{`
+
+             
+
                 .lazy-image-container {
                     position: relative;
                     width: 100%;
@@ -525,7 +734,9 @@ function RoomTwo() {
                     .skeleton-room {
                         width: 100%;
                     }
+                         
                 }
+
             `}</style>
         </>
     );
@@ -533,207 +744,4 @@ function RoomTwo() {
 
 export default RoomTwo;
 
-//  import React, { useEffect, useState, useRef } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/swiper-bundle.css'; // Core Swiper styles
-// import { Pagination } from 'swiper/modules';
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/scrollbar';
-// import RoomCardOne from './RoomCardOne';
-// import { getSimilarRoom } from '../../api/getSimilarRoom'; 
-// import Skeleton from 'react-loading-skeleton';
-// import 'react-loading-skeleton/dist/skeleton.css';
-// import WOW from 'wowjs';
-
-// function RoomTwo() {
-//     const [posts, setPosts] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-//     const contentLoaded = useRef(false);
-//     const wowInitialized = useRef(false);
-//     const swiperRef = useRef(null);
-
-//     // Fetch room data
-//     useEffect(() => {
-//         setLoading(true);
-//         getSimilarRoom()
-//             .then(data => {
-//                 if (data && data.rooms) {
-//                     console.log('Fetched room data:', data.rooms);
-//                     setPosts(data.rooms);
-//                     contentLoaded.current = true;
-//                 } else {
-//                     setError('Invalid data format received.');
-//                 }
-//                 setLoading(false);
-//             })
-//             .catch(err => {
-//                 console.error('Error fetching rooms:', err);
-//                 setError('Failed to fetch rooms. Please try again.');
-//                 setLoading(false);
-//             });
-//     }, []);
-
-//     // Initialize or reinitialize WOW.js after content loads
-//     useEffect(() => {
-//         if (!loading && contentLoaded.current && !wowInitialized.current) {
-//             // Small delay to ensure DOM is fully rendered with content
-//             const timer = setTimeout(() => {
-//                 const wow = new WOW.WOW({
-//                     boxClass: 'wow',
-//                     animateClass: 'animated',
-//                     offset: 0,
-//                     mobile: true,
-//                     live: false
-//                 });
-//                 wow.init();
-                
-//                 // Force WOW to re-scan the DOM to find all elements
-//                 if (typeof wow.sync === 'function') {
-//                     wow.sync();
-//                 }
-                
-//                 wowInitialized.current = true;
-                
-//                 // Add observer for any future content changes
-//                 const observer = new MutationObserver((mutations) => {
-//                     if (wowInitialized.current && typeof window.WOW === 'function') {
-//                         // Small delay to allow DOM to settle
-//                         setTimeout(() => {
-//                             if (typeof wow.sync === 'function') {
-//                                 wow.sync();
-//                             }
-//                         }, 100);
-//                     }
-//                 });
-                
-//                 // Start observing content changes in the room slider
-//                 const container = document.querySelector('.room__slider');
-//                 if (container) {
-//                     observer.observe(container, { 
-//                         childList: true, 
-//                         subtree: true,
-//                         attributes: true
-//                     });
-//                 }
-
-//                 return () => {
-//                     observer.disconnect();
-//                 };
-//             }, 300);
-            
-//             return () => clearTimeout(timer);
-//         }
-//     }, [loading, posts]); // Added posts as dependency to re-trigger when data arrives
-
-//     // Manually update Swiper after content loads
-//     useEffect(() => {
-//         if (posts.length > 0 && swiperRef.current && swiperRef.current.swiper) {
-//             setTimeout(() => {
-//                 swiperRef.current.swiper.update();
-//             }, 100);
-//         }
-//     }, [posts]);
-
-//     const getFirstImage = (imagesString) => {
-//         try {
-//             if (!imagesString) return '';
-//             const images = JSON.parse(imagesString);
-//             return Array.isArray(images) && images.length > 0 ? images[0] : '';
-//         } catch (err) {
-//             console.error("Error parsing image JSON:", err);
-//             return '';
-//         }
-//     };
-
-//     return (
-//         <>
-//             {/* our room */}
-//             <div className="rts__section section__padding">
-//                 <div className="container">
-//                     <div className="row">
-//                         <div className="section__wrapper mb-40 wow fadeInUp" data-wow-duration="1s">
-//                             <div className="section__content__left">
-//                                 <span className="h6 subtitle__icon__two d-block wow fadeInUp" data-wow-duration="1.2s">
-//                                     Room
-//                                 </span>
-//                                 <h2 className="content__title h2 lh-1">Our Rooms</h2>
-//                             </div>
-//                             <div className="section__content__right">
-//                                 <p>
-//                                     Our rooms offer a harmonious blend of comfort and elegance,
-//                                     designed to provide an exceptional stay for every guest...
-//                                 </p>
-//                             </div>
-//                         </div>
-//                     </div>
-//                     {/* row end */}
-//                     <div className="row">
-//                         {loading ? (
-//                             <div className="text-center">
-//                                 <Skeleton count={3} height={300} />
-//                             </div>
-//                         ) : error ? (
-//                             <p className="text-center text-danger">{error}</p>
-//                         ) : posts.length === 0 ? (
-//                             <p className="text-center">No rooms available</p>
-//                         ) : (
-//                             <div className="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">
-//                                 <Swiper
-//                                     ref={swiperRef}
-//                                     className="room__slider overflow-hidden"
-//                                     modules={[Pagination]}
-//                                     slidesPerView={3}
-//                                     spaceBetween={30}
-//                                     loop={posts.length > 1}
-//                                     centeredSlides={posts.length > 2}
-//                                     autoplay={false}
-//                                     pagination={{
-//                                         el: ".rts-pagination",
-//                                         clickable: true,
-//                                     }}
-//                                     speed={1000}
-//                                     breakpoints={{
-//                                         0: { slidesPerView: 1 },
-//                                         575: { slidesPerView: 1 },
-//                                         768: { slidesPerView: 2 },
-//                                         1200: { slidesPerView: 3 },
-//                                         1400: { slidesPerView: 3 },
-//                                     }}
-//                                     onUpdate={(swiper) => {
-//                                         console.log("Swiper updated");
-//                                     }}
-//                                 >
-//                                     {Array.isArray(posts) && posts.map((data, index) => (
-//                                         <SwiperSlide key={data.id || index}>
-//                                             <div className="wow fadeInUp" data-wow-duration="1.8s" data-wow-delay={`${(index + 1) * 0.2}s`}>
-//                                                 <RoomCardOne
-//                                                     roomID={data.id}
-//                                                     roomImage={data.banner_image || getFirstImage(data.images)}
-//                                                     roomTitle={data.title}
-//                                                     roomPrice={data.price}
-//                                                     roomSize={data.size}
-//                                                     roomCapacity={data.person_allow}
-//                                                 />
-//                                             </div>
-//                                         </SwiperSlide>
-//                                     ))}
-//                                 </Swiper>
-//                             </div>
-//                         )}
-
-//                         {/* pagination button */}
-//                         <div className="rts__pagination">
-//                             <div className="rts-pagination" />
-//                         </div>
-//                         {/* pagination button end */}
-//                     </div>
-//                 </div>
-//             </div>
-//             {/* our room end */}
-//         </>
-//     );
-// }
-
-// export default RoomTwo;
+ 

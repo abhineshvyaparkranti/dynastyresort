@@ -105,89 +105,89 @@
 // export default AwardsSection;
 
 
-  import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { getAwards } from '../../api/getAwards';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+//   import React, { useEffect, useState } from 'react';
+// import { Container, Row, Col, Card } from 'react-bootstrap';
+// import { getAwards } from '../../api/getAwards';
+// import Skeleton from 'react-loading-skeleton';
+// import 'react-loading-skeleton/dist/skeleton.css';
 
-const AwardsSection = () => {
-  const [awards, setAwards] = useState([]);
-  const [startIndex, setStartIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const visibleCount = 5;
+// const AwardsSection = () => {
+//   const [awards, setAwards] = useState([]);
+//   const [startIndex, setStartIndex] = useState(0);
+//   const [loading, setLoading] = useState(true);
+//   const visibleCount = 5;
 
-  // Fetch awards from API
- useEffect(() => {
-  getAwards()
-    .then((data) => {
-      if (data?.awards) {
-        // Sort awards by the `sorting` key before setting them
-        const sortedAwards = [...data.awards].sort((a, b) => a.sorting - b.sorting);
-        setAwards(sortedAwards);
-      }
-    })
-    .catch((err) => {
-      console.error('Error fetching awards:', err);
-    })
-    .finally(() => setLoading(false));
-}, []);
+//   // Fetch awards from API
+//  useEffect(() => {
+//   getAwards()
+//     .then((data) => {
+//       if (data?.awards) {
+//         // Sort awards by the `sorting` key before setting them
+//         const sortedAwards = [...data.awards].sort((a, b) => a.sorting - b.sorting);
+//         setAwards(sortedAwards);
+//       }
+//     })
+//     .catch((err) => {
+//       console.error('Error fetching awards:', err);
+//     })
+//     .finally(() => setLoading(false));
+// }, []);
 
 
-  // Auto-scroll behavior
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setStartIndex((prevIndex) =>
-        awards.length > 0 ? (prevIndex + 1) % awards.length : 0
-      );
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [awards]);
+//   // Auto-scroll behavior
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setStartIndex((prevIndex) =>
+//         awards.length > 0 ? (prevIndex + 1) % awards.length : 0
+//       );
+//     }, 3000);
+//     return () => clearInterval(interval);
+//   }, [awards]);
 
-  // Get currently visible awards
-  const getVisibleAwards = () => {
-    const endIndex = startIndex + visibleCount;
-    if (endIndex <= awards.length) {
-      return awards.slice(startIndex, endIndex);
-    } else {
-      return [...awards.slice(startIndex), ...awards.slice(0, endIndex - awards.length)];
-    }
-  };
+//   // Get currently visible awards
+//   const getVisibleAwards = () => {
+//     const endIndex = startIndex + visibleCount;
+//     if (endIndex <= awards.length) {
+//       return awards.slice(startIndex, endIndex);
+//     } else {
+//       return [...awards.slice(startIndex), ...awards.slice(0, endIndex - awards.length)];
+//     }
+//   };
 
-  return (
-    <Container className="my-5">
-      <h2 className="text-center mb-4">Awards & Recognition</h2>
-      <Row className="g-3 justify-content-center">
-        {loading
-          ? Array.from({ length: visibleCount }).map((_, idx) => (
-              <Col key={idx} xs={12} sm={6} md={4} lg={2}>
-                <Skeleton height={180} />
-              </Col>
-            ))
-          : getVisibleAwards().map((award) => (
-              <Col key={award.id} xs={12} sm={6} md={4} lg={2}>
-                <Card className="h-100 text-center p-3 shadow-sm">
-                  <Card.Img
-                    variant="top"
-                    src={award.image}
-                    alt={`Award ${award.id}`}
-                    loading="lazy"
-                    style={{
-                      width: '120px',
-                      height: '150px',
-                      objectFit: 'contain',
-                      margin: '0 auto',
-                    }}
-                  />
-                </Card>
-              </Col>
-            ))}
-      </Row>
-    </Container>
-  );
-};
+//   return (
+//     <Container className="my-5">
+//       <h2 className="text-center mb-4">Awards & Recognition</h2>
+//       <div className="g-3 justify-content-center"  style={{ display: 'flex', columnGap: '10px' }}>
+//         {loading
+//           ? Array.from({ length: visibleCount }).map((_, idx) => (
+//               <Col key={idx} xs={12} sm={6} md={4} lg={2}>
+//                 <Skeleton height={180} />
+//               </Col>
+//             ))
+//           : getVisibleAwards().map((award) => (
+//               <Col key={award.id} xs={12} sm={6} md={4} lg={2}>
+//                 <Card className="h-100 text-center p-3 shadow-sm">
+//                   <Card.Img
+//                     variant="top"
+//                     src={award.image}
+//                     alt={`Award ${award.id}`}
+//                     loading="lazy"
+//                     style={{
+//                       width: '120px',
+//                       height: '150px',
+//                       objectFit: 'contain',
+//                       margin: '0 auto',
+//                     }}
+//                   />
+//                 </Card>
+//               </Col>
+//             ))}
+//       </div>
+//     </Container>
+//   );
+// };
 
-export default AwardsSection;
+// export default AwardsSection;
  
 //   import React, { useEffect, useState } from 'react';
 // import { getAwards } from '../../api/getAwards';
@@ -317,3 +317,103 @@ export default AwardsSection;
 // };
 
 // export default AwardsSection;
+
+
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import { getAwards } from '../../api/getAwards';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
+const AwardsSection = () => {
+  const [awards, setAwards] = useState([]);
+  const [startIndex, setStartIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(5); // initially assume desktop
+
+  // Dynamically adjust visible count on resize
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 576) {
+        setVisibleCount(1); // Mobile
+      } else if (width < 768) {
+        setVisibleCount(2); // Small devices
+      } else if (width < 992) {
+        setVisibleCount(3); // Medium devices
+      } else {
+        setVisibleCount(5); // Large devices
+      }
+    };
+
+    handleResize(); // Set initially
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    getAwards()
+      .then((data) => {
+        if (data?.awards) {
+          const sortedAwards = [...data.awards].sort((a, b) => a.sorting - b.sorting);
+          setAwards(sortedAwards);
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching awards:', err);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStartIndex((prevIndex) =>
+        awards.length > 0 ? (prevIndex + 1) % awards.length : 0
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [awards]);
+
+  const getVisibleAwards = () => {
+    const endIndex = startIndex + visibleCount;
+    if (endIndex <= awards.length) {
+      return awards.slice(startIndex, endIndex);
+    } else {
+      return [...awards.slice(startIndex), ...awards.slice(0, endIndex - awards.length)];
+    }
+  };
+
+  return (
+    <Container className="my-5">
+      <h2 className="text-center mb-4">Awards & Recognition</h2>
+      <Row className="g-3 justify-content-center">
+        {loading
+          ? Array.from({ length: visibleCount }).map((_, idx) => (
+              <Col key={idx} xs={12} sm={6} md={4} lg={2}>
+                <Skeleton height={180} />
+              </Col>
+            ))
+          : getVisibleAwards().map((award) => (
+              <Col key={award.id} xs={12} sm={6} md={4} lg={2}>
+                <Card className="h-100 text-center p-3 shadow-sm">
+                  <Card.Img
+                    variant="top"
+                    src={award.image}
+                    alt={`Award ${award.id}`}
+                    loading="lazy"
+                    style={{
+                      width: '120px',
+                      height: '150px',
+                      objectFit: 'contain',
+                      margin: '0 auto',
+                    }}
+                  />
+                </Card>
+              </Col>
+            ))}
+      </Row>
+    </Container>
+  );
+};
+
+export default AwardsSection;

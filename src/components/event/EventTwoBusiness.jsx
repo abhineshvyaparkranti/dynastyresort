@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import 'animate.css/animate.min.css';
+
 
 function EventTwoBusiness() {
     const [loading, setLoading] = useState(true);
@@ -37,9 +39,16 @@ function EventTwoBusiness() {
             .finally(() => setLoading(false));
     }, []);
 
-    useEffect(() => {
-        new WOW.WOW().init();
-    }, []);
+    // useEffect(() => {
+    //     new WOW.WOW().init();
+    // }, []);
+   useEffect(() => {
+    if (!loading) {
+        new WOW.WOW({ live: false }).init();
+    }
+}, [loading]);
+
+
 
     // Function to render HTML content safely
     const createMarkup = (htmlContent) => {
@@ -105,7 +114,7 @@ function EventTwoBusiness() {
                                             {conference?.title || "A Night of Hope: Our Charity Gala Room."}
                                         </h2>
                                         <div 
-                                            className="font-sm wow fadeInUp" 
+                                            className="wow fadeInUp font-sm " 
                                             dangerouslySetInnerHTML={createMarkup(conference?.short_desc || "")}
                                         />
                                     </>
@@ -173,7 +182,7 @@ function EventTwoBusiness() {
                                             {`${conference?.title || ""} Festival Event`}
                                         </h2> */}
                                         <div 
-                                            className="font-sm wow fadeInUp"
+                                            className="wow fadeInUp font-sm "
                                             dangerouslySetInnerHTML={createMarkup(conference?.description || "")}
                                         />
                                     </>

@@ -233,7 +233,7 @@ function OfferOne() {
                         </div>
 
                     {/* </Link> */}
-                    <div className="single__offer__card__content">
+                    <div className="single__offer__card__content"  >
                       <Link to="/#" className="h5">
                         {offer.title}
                       </Link>

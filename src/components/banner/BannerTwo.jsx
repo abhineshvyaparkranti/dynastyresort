@@ -228,11 +228,11 @@ function BannerTwo() {
             speed={1000}
             effect="slide"
           >
-            <div className="swiper-wrapper">
+            <div className="swiper-wrapper" >
               {/* Render dynamic banner slides from API */}
               {bannerData && bannerData.length > 0 ? (
                 bannerData.map((slide, index) => (
-                  <SwiperSlide key={slide.id || index}>
+                  <SwiperSlide key={slide.id || index} >
                     <div className="banner__slider__image">
                       <img 
                         src={slide.image || slide.imageUrl || "/assets/images/banner/4.webp"} 
@@ -243,15 +243,15 @@ function BannerTwo() {
                       <div className="row justify-content-center">
                         <div className="col-lg-10">
                           <div className="banner__slide__content">
-                            <span className="h6 subtitle__icon">
+                            <span className="h6 subtitle__icon" style={{ visibility: 'hidden' }}>
                               {slide.subtitle || "Welcome to Our Hotel"}
                             </span>
-                            <h1>{slide.heading_top || "Luxury Stay Hotel Experience Comfort & Elegance"}</h1>
-                            <p className="sub__text">
+                            <h1 style={{ visibility: 'hidden' }}>{slide.heading_top || "Luxury Stay Hotel Experience Comfort & Elegance"}</h1>
+                            <h3   style={{ color: 'white'}} >
                               {slide.heading_bottom || "Choosing Bokinn was one of the best decisions we've ever made. They have proven to be a reliable and innovative partner"}
-                            </p>
+                            </h3>
                             <Link
-                              to={slide.button_link || slide.buttonLink || "/room-three"}
+                              to={slide.button_link || slide.buttonLink || "/room-two"}
                               className="theme-btn btn-style fill no-border"
                             >
                               <span>{slide.button_text || slide.buttonText || "Discover Room"}</span>
@@ -264,7 +264,7 @@ function BannerTwo() {
                 ))
               ) : (
                 // Fallback slide if no data is available
-                <SwiperSlide>
+                <SwiperSlide  >
                   <div className="banner__slider__image">
                     <img src="/assets/images/banner/4.webp" alt="Default Banner" />
                   </div>
@@ -272,20 +272,20 @@ function BannerTwo() {
                     <div className="row justify-content-center">
                       <div className="col-lg-10">
                         <div className="banner__slide__content">
-                          <span className="h6 subtitle__icon">
+                          <span className="h6 subtitle__icon" style={{ visibility: 'hidden' }}>
                             Welcome to Our Hotel
                           </span>
-                          <h1>Luxury Stay Hotel Experience Comfort &amp; Elegance</h1>
-                          <p className="sub__text">
+                          <h1 style={{ visibility: 'hidden' }}>Luxury Stay Hotel Experience Comfort &amp; Elegance</h1>
+                          <h3    style={{ color: 'white'}}>
                             Choosing Bokinn was one of the best decisions we've ever
                             made. They have proven to be a reliable and innovative
                             partner
-                          </p>
+                          </h3>
                           <Link
-                            to="/room-three"
+                            to="/room-two"
                             className="theme-btn btn-style fill no-border"
                           >
-                            <span>Discover Room</span>
+                            <span >Discover Room</span>
                           </Link>
                         </div>
                       </div>

@@ -257,7 +257,7 @@ function HeaderOne() {
                                             className="navigation__menu--item__link theme-btn btn-style sm-btn fill has-arrow"
                                             onClick={toggleDropdown}
                                         >
-                                            <span>Mice</span>
+                                            <span>MICE</span>
 
                                             {/* Icon inside the button */}
                                             <span className="dropdown-icon">

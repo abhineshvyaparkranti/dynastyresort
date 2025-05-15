@@ -7,6 +7,7 @@ import { getWedding } from '../../api/getWedding';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import 'animate.css/animate.min.css';
 import 'swiper/css/autoplay';
  
  
@@ -40,9 +41,14 @@ import 'swiper/css/autoplay';
               .finally(() => setLoading(false));
       }, []);
   
-      useEffect(() => {
-          new WOW.WOW().init();
-      }, []);
+    //   useEffect(() => {
+    //       new WOW.WOW().init();
+    //   }, []);
+     useEffect(() => {
+        if (!loading) {
+            new WOW.WOW({ live: false }).init();
+        }
+    }, [loading]);
   
       // Function to render HTML content safely
       const createMarkup = (htmlContent) => {
