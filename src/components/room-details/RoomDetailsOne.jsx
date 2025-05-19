@@ -24,7 +24,7 @@ function RoomDetailsOne() {
                                 <div className="room__meta">
                                     <span>
                                         <i className="flaticon-construction" />
-                                        35 sqm
+                                        35 ft
                                     </span>
                                     <span>
                                         <i className="flaticon-user" />5 Person

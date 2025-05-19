@@ -105,7 +105,7 @@ function RoomCardFive( {roomID} ) {
                 <div className="room__card__meta__info">
                     <span>
                         <i className="flaticon-construction" />
-                        {size} sqm
+                        {size} ft
                     </span>
                     <span>
                         <i className="flaticon-user" />
@@ -219,7 +219,7 @@ export default RoomCardFive;
 //                 <div className="room__meta mb-10">
 //                     <span>
 //                         <i className="flaticon-construction" />
-//                         {room.size} sqm
+//                         {room.size} ft
 //                     </span>
 //                     <span>
 //                         <i className="flaticon-user" />

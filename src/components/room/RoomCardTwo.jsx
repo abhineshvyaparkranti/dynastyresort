@@ -21,7 +21,7 @@ function RoomCardTwo(props) {
                         <div className="room__content__meta">
                             <span>
                                 <i className="flaticon-construction" />
-                                Size: 35 sqm
+                                Size: 35 ft
                             </span>
                             <span>
                                 <i className="flaticon-user" />

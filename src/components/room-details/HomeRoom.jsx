@@ -94,7 +94,7 @@ function HomeRoom() {
                                     roomImage={room.banner_image || getFirstImage(room.images)}
                                     roomTitle={room.title}
                                     roomPrice={room.price || `${room.category}`}
-                                    roomSize={`${room.size} sqm`}
+                                    roomSize={`${room.size} ft`}
                                     roomCapacity={`${room.person_allow} Person`}
                                     roomSlug={room.slug}
                                     roomDetails={room.details}

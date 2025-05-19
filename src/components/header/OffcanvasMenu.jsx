@@ -146,7 +146,7 @@ function OffcanvasMenu({ isOpen, onClose }) {
                                         </li>
 
                                          <li className="slide">
-                                            <Link className="slide__menu__item" to="/offer">Offer</Link>
+                                            <Link className="slide__menu__item" to="/offer">Offers</Link>
                                         </li>
                                          
 

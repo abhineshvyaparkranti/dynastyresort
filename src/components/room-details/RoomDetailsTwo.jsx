@@ -25,7 +25,7 @@
 //                                 <div className="room__meta">
 //                                     <span>
 //                                         <i className="flaticon-construction" />
-//                                         35 sqm
+//                                         35 ft
 //                                     </span>
 //                                     <span>
 //                                         <i className="flaticon-user" />5 Person
@@ -441,7 +441,7 @@
 //                                 <div className="room__meta">
 //                                     <span>
 //                                         <i className="flaticon-construction" />
-//                                         35 sqm
+//                                         35 ft
 //                                     </span>
 //                                     <span>
 //                                         <i className="flaticon-user" />5 Person
@@ -874,7 +874,7 @@
 //                                 <div className="room__meta">
 //                                     <span>
 //                                         <i className="flaticon-construction" />
-//                                         {singleRoom.size} sqm
+//                                         {singleRoom.size} ft
 //                                     </span>
 //                                     <span>
 //                                         <i className="flaticon-user" />{singleRoom.person_allow} Person
@@ -1257,7 +1257,7 @@
 //                                 <div className="room__meta">
 //                                     <span>
 //                                         <i className="flaticon-construction" />
-//                                         {singleRoom.size} sqm
+//                                         {singleRoom.size} ft
 //                                     </span>
 //                                     <span>
 //                                         <i className="flaticon-user" />{singleRoom.person_allow} Person
@@ -1620,7 +1620,7 @@ function RoomDetails() {
                                 <div className="room__meta">
                                     <span>
                                         <i className="flaticon-construction" />
-                                        {size} sqm
+                                        {size} ft
                                     </span>
                                     <span>
                                         <i className="flaticon-user" />{person_allow}

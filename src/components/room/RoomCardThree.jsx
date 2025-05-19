@@ -22,7 +22,7 @@ function RoomCardThree(props) {
                         <div className="apartment__content__meta">
                             <span>
                                 <i className="flaticon-construction" />
-                                35 sqm
+                                35 ft
                             </span>
                             <span>
                                 <i className="flaticon-user" />5 Person

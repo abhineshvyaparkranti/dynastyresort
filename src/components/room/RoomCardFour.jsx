@@ -28,7 +28,7 @@
 //                     <div className="room__card__meta__info">
 //                         <span>
 //                             <i className="flaticon-construction" />
-//                             35 sqm
+//                             35 ft
 //                         </span>
 //                         <span>
 //                             <i className="flaticon-user" />5 Person
@@ -94,7 +94,7 @@
 //                     <div className="room__card__meta__info">
 //                         <span>
 //                             <i className="flaticon-construction" />
-//                             {props.roomSize || '35 sqm'}
+//                             {props.roomSize || '35 ft'}
 //                         </span>
 //                         <span>
 //                             <i className="flaticon-user" />{props.roomCapacity || '5 Person'}
@@ -191,7 +191,7 @@ function RoomCardFour(props) {
                 <div className="room__card__meta__info">
                     <span>
                         <i className="flaticon-construction" />
-                        {roomSize || '35 sqm'}
+                        {roomSize || '35 ft'}
                     </span>
                     <span>
                         <i className="flaticon-user" />

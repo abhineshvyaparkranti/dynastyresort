@@ -139,7 +139,7 @@
 //                                 <div className="room__meta">
 //                                     <span>
 //                                         <i className="flaticon-construction" />
-//                                         {roomData.size} sqm
+//                                         {roomData.size} ft
 //                                     </span>
 //                                     <span>
 //                                         <i className="flaticon-user" />{roomData.person_allow}
@@ -543,7 +543,7 @@
 //                                 <div className="room__meta">
 //                                     <span>
 //                                         <i className="flaticon-construction" />
-//                                         {roomData.size} sqm
+//                                         {roomData.size} ft
 //                                     </span>
 //                                     <span>
 //                                         <i className="flaticon-user" />{roomData.person_allow}
@@ -1002,7 +1002,7 @@ const RoomDetailsSimilar = () => {
                                 <div className="room__meta">
                                     <span>
                                         <i className="flaticon-construction" />
-                                        {roomData.size} sqm
+                                        {roomData.size} ft
                                     </span>
                                     <span>
                                         <i className="flaticon-user" />{roomData.person_allow}

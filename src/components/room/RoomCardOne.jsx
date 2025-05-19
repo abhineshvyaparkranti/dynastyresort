@@ -20,7 +20,7 @@
 //                 </Link>
 //                 <div className="room__content__meta">
 //                     <span>
-//                         <i className="flaticon-construction" /> 35 sqm
+//                         <i className="flaticon-construction" /> 35 ft
 //                     </span>
 //                     <span>
 //                         <i className="flaticon-user" />2 Person
@@ -97,7 +97,7 @@
 //     fontfamily: 'var(--glida)', color: 'white'}}>{roomTitle || 'The Ritz-Carlton'}</h5>
 //                 </Link>
 //                 <div className="room__content__meta">
-//                     <span><i className="flaticon-construction" /> {roomSize} sqm</span>
+//                     <span><i className="flaticon-construction" /> {roomSize} ft</span>
 //                     <span><i className="flaticon-user" /> {roomCapacity} Person</span>
 //                 </div>
 //                 {/* Price display is conditional */}
@@ -219,7 +219,7 @@ function RoomCardOne(props) {
                 </Link>
 
                 <div className="room__content__meta">
-                    <span><i className="flaticon-construction" /> {roomSize} sqm</span>
+                    <span><i className="flaticon-construction" /> {roomSize} ft</span>
                     <span><i className="flaticon-user" /> {roomCapacity} Person</span>
                 </div>
 

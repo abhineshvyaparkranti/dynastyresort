@@ -347,7 +347,7 @@ function HeaderOne() {
                                                     to="/offer"
                                                     className="navigation__menu--item__link theme-btn btn-style sm-btn fill"
                                                 >
-                                                    <span>Offer</span>  
+                                                    <span>Offers</span>  
                                                 </Link>
                                             </li>
 

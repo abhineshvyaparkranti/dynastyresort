@@ -209,8 +209,8 @@ function OfferOne() {
           <div className="row position-relative justify-content-center text-center mb-30">
             <div className="col-lg-6 wow fadeInUp">
               <div className="section__topbar">
-                <span className="h6 subtitle__icon__three mx-auto">Special Offer</span>
-                <h2 className="section__title">Special Offer</h2>
+                <span className="h6 subtitle__icon__three mx-auto">Special Offers</span>
+                <h2 className="section__title">Special Offers</h2>
               </div>
             </div>
           </div>
