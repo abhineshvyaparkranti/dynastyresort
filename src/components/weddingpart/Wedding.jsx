@@ -879,9 +879,9 @@ const Wedding = () => {
               ))
             )}
           </Row>
-          <div className="text-center mt-5">
-            <Button variant="outline-primary" size="lg" className="rounded-pill px-4 btn-custom-outline">View Full Gallery</Button>
-          </div>
+          {/* <div className="text-center mt-5">
+             <Button variant="outline-primary" size="lg" className="rounded-pill px-4 btn-custom-outline">View Full Gallery</Button>  
+          </div> */}
         </Container>
       </section>
 
@@ -897,7 +897,7 @@ const Wedding = () => {
        <ServiceFive />
 
       {/* Call to Action */}
-      <section id="section-cta" className="py-5 text-white" style={{ 
+      {/* <section id="section-cta" className="py-5 text-white" style={{ 
         backgroundImage: 'url("/api/placeholder/1920/600")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -921,13 +921,11 @@ const Wedding = () => {
           </a>
 
 
-              {/* <Button variant="outline-light" size="lg" >
-                Schedule a Tour
-              </Button> */}
+              
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
 
       {/* Gallery Modal */}
       <Modal

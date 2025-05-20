@@ -351,6 +351,15 @@ function HeaderOne() {
                                                 </Link>
                                             </li>
 
+                                             <li className="navigation__menu--item">
+                                                <Link
+                                                    to="/contact"
+                                                    className="navigation__menu--item__link theme-btn btn-style sm-btn fill"
+                                                >
+                                                    <span>Contact</span>  
+                                                </Link>
+                                            </li>
+
                                         </ul>
                                     </nav>
                                 </div>

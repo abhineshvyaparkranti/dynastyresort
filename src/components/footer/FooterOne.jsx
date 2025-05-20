@@ -217,6 +217,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { getContact } from '../../api/getContact';
 import Gallery from './../../pages/Gallery';
 import { FaXTwitter } from 'react-icons/fa6';
+import TermsCondition from './TermsCondition';
 
 function FooterOne() {
   const [contact, setContact] = useState(null);
@@ -225,7 +226,7 @@ function FooterOne() {
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const iconStyle = (index) => ({
-    color: hoveredIcon === index ? '#ab8a62' : 'grey', // Hover color
+    color: hoveredIcon === index ? 'black' : 'white', // Hover color
     transition: 'color 0.3s ease',
     cursor: 'pointer',
   });
@@ -267,7 +268,7 @@ function FooterOne() {
   return (
     <>
       <footer className="rts__section rts__footer is__common__footer footer__background has__shape">
-        <div className="section__shape">
+        <div className="section__shape" style={{background: '#ab8a62'}}>
           <div className="shape__1">
             <img src="/assets/images/footer/shape-1.svg" alt="" />
           </div>
@@ -286,9 +287,9 @@ function FooterOne() {
               {/* Logo and about */}
               <div className="rts__widget">
                 <Link to="/">
-                  <img className="footer__logo" style={{ height: '100px', padding: '10px', objectFit: 'contain' }} src="/assets/images/logo/dynastylogo.png" alt="footer logo" />
+                  <img className="footer__logo" style={{ height: '100px', padding: '10px', objectFit: 'contain', filter: 'brightness(0) invert(1)',  }} src="/assets/images/logo/dynastylogo.png" alt="footer logo" />
                 </Link>
-                <p className="font-sm max-290 mt-20">
+                <p className="font-sm max-290 mt-20"  style={{ color: 'white',  }}>
                   {/* Each room features plush bedding, high-quality linens, and a
                   selection to ensure a restful night's sleep. */}
                   {contact?.footer_content || "Welcome to Dynasty Resort — experience comfort and luxury with every stay."}
@@ -297,48 +298,48 @@ function FooterOne() {
 
               {/* Quick Links */}
               <div className="rts__widget">
-                <span className="widget__title">Quick Links</span>
+                <span className="widget__title" style={{ color: 'white', fontWeight: 'bold' }}>Quick Links</span>
                 <ul>
 
                    
-                   <li><Link to="/about">About Us</Link></li>
-                  <li><Link to="/activities">Activities</Link></li>
+                   <li><Link to="/about" style={{ color: 'white',   }}>About Us</Link></li>
+                  <li><Link to="/activities" style={{ color: 'white',   }}>Activities</Link></li>
                    
-                  <li><Link to="/blog">Blog</Link></li>
-                  <li><Link to="/contact">Contact Us</Link></li>
-                   <li><Link to="/gallery">Gallery</Link></li>
+                  <li><Link to="/blog" style={{ color: 'white',   }}>Blog</Link></li>
+                  <li><Link to="/contact" style={{ color: 'white',   }}>Contact Us</Link></li>
+                   <li><Link to="/gallery" style={{ color: 'white',   }}>Gallery</Link></li>
                   {/* <li><Link to="/termscondition">Terms & Conditions</Link></li> */}
                   {/* <li><Link to="/privacy">Privacy Policy</Link></li> */}
                   {/* <li><Link to="/refund">Refund Cancellation Policy</Link></li> */}
-                  <li><Link to="/service">Our Service</Link></li>
-                  <li><Link to="/resturant">Restaurant</Link></li>
+                  <li><Link to="/service" style={{ color: 'white',  }}>Our Service</Link></li>
+                  <li><Link to="/resturant" style={{ color: 'white',   }}>Restaurant</Link></li>
                 </ul>
               </div>
 
               {/* Guest Services */}
               <div className="rts__widget">
-                <span className="widget__title">Guest Service</span>
+                <span className="widget__title" style={{ color: 'white', fontWeight: 'bold' }}>Guest Service</span>
                 <ul>
-                  <li>24/7 Front Desk</li>
-                  <li>Parking</li>
-                  <li>Room Service</li>
-                  <li>Free Wi-Fi</li>
-                  <li>Concierge Service</li>
+                  <li style={{ color: 'white',  }}>24/7 Front Desk</li>
+                  <li style={{ color: 'white',  }}>Parking</li>
+                  <li style={{ color: 'white',   }}>Room Service</li>
+                  <li style={{ color: 'white',   }}>Free Wi-Fi</li>
+                  <li style={{ color: 'white',   }}>Concierge Service</li>
                   {/* <li><Link to="/service">Our Service</Link></li> */}
                 </ul>
               </div>
 
               {/* Contact + Socials */}
               <div className="rts__widget">
-                <span className="widget__title">Contact Us</span>
+                <span className="widget__title" style={{ color: 'white', fontWeight: 'bold' }}>Contact Us</span>
                 <ul>
                   <li>
-                    <Link to={loading ? "#" : `tel:${contact?.mobile}`}>
+                    <Link to={loading ? "#" : `tel:${contact?.mobile}`} style={{ color: 'white',   }}>
                       <FaPhoneAlt /> {loading ? <Skeleton width={180} /> : contact?.mobile}
                     </Link>
                   </li>
                   <li>
-                    <Link to={loading ? "#" : `mailto:${contact?.mail}`}>
+                    <Link to={loading ? "#" : `mailto:${contact?.mail}`} style={{ color: 'white',   }}>
                       <FaEnvelope /> {loading ? <Skeleton width={180} /> : contact?.mail}
                     </Link>
                   </li>
@@ -347,11 +348,12 @@ function FooterOne() {
 
                   
                  
-                 <li>
+                 <li style={{ color: 'white',   }}>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=29.369909,79.426384(Dynasty+Resort)"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ color: 'white',   }}
                 >
                   <FaMapMarkerAlt />
                   {loading ? (
@@ -378,7 +380,7 @@ function FooterOne() {
                 </ul>
 
                 {/* Social Icons */}
-                <div className="d-flex flex-wrap gap-3 mt-4">
+                <div className="d-flex flex-wrap gap-3 mt-4" style={{ color: 'white',  }}>
                   {/* {contact?.facebook && (
                     <Link to={contact.facebook} target="_blank" rel="noopener noreferrer">
                       <FaFacebookF style={{ color: 'grey' }} size={20} />
@@ -414,6 +416,7 @@ function FooterOne() {
                     key={key}
                     onMouseEnter={() => setHoveredIcon(index)}
                     onMouseLeave={() => setHoveredIcon(null)}
+                     
                   >
                     <Icon style={iconStyle(index)} size={20} />
                   </Link>
@@ -439,13 +442,15 @@ function FooterOne() {
                   <li><Link to="/service">Our Service</Link></li>
               </div> */}
               <div className="copyright__wrapper d-flex justify-content-between align-items-center py-3 flex-wrap">
-              <p className="mb-0">
+              <p className="mb-0" style={{ color: 'white', fontWeight: 'bold' }}>
                 Copyright © {new Date().getFullYear()} Dynasty Resort. All rights reserved.
               </p>
 
-              <ul className="list-unstyled d-flex gap-3 mb-0">
-                <li  ><Link to="/privacy" style={{color: 'grey'}}>Privacy Policy</Link></li>
-                <li   ><Link to="/refund" style={{color: 'grey'}}>Refund Cancellation Policy</Link></li>
+              <ul className="list-unstyled d-flex gap-3 mb-0" style={{ color: 'white', fontWeight: 'bold' }}>
+                  <li   ><Link to="/termscondition"  style={{ color: 'white', fontWeight: 'bold' }}>Terms & Conditions</Link></li> |
+                <li  ><Link to="/privacy"  style={{ color: 'white', fontWeight: 'bold' }}>Privacy Policy</Link></li> |
+                <li   ><Link to="/refund"  style={{ color: 'white', fontWeight: 'bold' }}>Refund Cancellation Policy</Link></li>
+               
                 {/* <li   ><Link to="/service" style={{color: 'grey'}}>Our Service</Link></li> */}
               </ul>
             </div>

@@ -219,7 +219,7 @@ function RoomCardOne(props) {
                 </Link>
 
                 <div className="room__content__meta">
-                    <span><i className="flaticon-construction" /> {roomSize} ft</span>
+                    <span><i className="flaticon-construction" /> {roomSize} sq ft</span>
                     <span><i className="flaticon-user" /> {roomCapacity} Person</span>
                 </div>
 

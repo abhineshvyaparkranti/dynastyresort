@@ -152,7 +152,7 @@ export default function NewsletterForm() {
 
   return (
     <div className="footer__newsletter">
-      <span className="h2">Join Our Newsletter</span>
+      <span className="h2" style={{color: 'white'}}>Join Our Newsletter</span>
       <div className="rts__form" style={{ maxWidth: '500px' }}>
         {/* Email input and Subscribe button */}
         <div className="input-group mb-3">
@@ -176,7 +176,7 @@ export default function NewsletterForm() {
 
         {/* CAPTCHA row */}
         <div className="d-flex align-items-center mb-2">
-          <label className="me-2 fw-bold mb-0">
+          <label className="me-2 fw-bold mb-0" style={{color: 'white'}}>
             CAPTCHA: {captcha.question}
           </label>
           <input

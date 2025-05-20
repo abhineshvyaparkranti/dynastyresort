@@ -837,7 +837,7 @@ function BookingModal({ show, handleClose, autoShowTime = null }) {
   return (
     <Modal show={show} onHide={handleClose} centered size="lg">
       <Modal.Header closeButton>
-        <Modal.Title>Book Your Room</Modal.Title>
+        <Modal.Title style={{fontWeight: 'bold'}}>Book Your Room</Modal.Title>
       </Modal.Header>
 
       <Modal.Body className="p-0">
@@ -865,7 +865,7 @@ function BookingModal({ show, handleClose, autoShowTime = null }) {
           </Col>
 
           <Col md={7} className="p-4">
-            <h4 className="mb-4">Enter Your Details</h4>
+            <h4 className="mb-4" style={{fontWeight: 'bold'}}>Enter Your Details</h4>
             <Form onSubmit={handleSubmit} noValidate>
               <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>

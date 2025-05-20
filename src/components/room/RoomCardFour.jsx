@@ -185,13 +185,14 @@ function RoomCardFour(props) {
                     state={{ roomSlug: roomSlug }}
                     className="room__card__title h5"
                     onClick={ClickHandler}
+                    style={{fontWeight: 'bold'}}
                 >
                     {roomTitle ? roomTitle : 'Deluxe Room'}
                 </Link>
                 <div className="room__card__meta__info">
                     <span>
                         <i className="flaticon-construction" />
-                        {roomSize || '35 ft'}
+                        {roomSize || '35 sq ft'}
                     </span>
                     <span>
                         <i className="flaticon-user" />

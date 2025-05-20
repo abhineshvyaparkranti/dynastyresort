@@ -1620,7 +1620,7 @@ function RoomDetails() {
                                 <div className="room__meta">
                                     <span>
                                         <i className="flaticon-construction" />
-                                        {size} ft
+                                        {size} sq ft
                                     </span>
                                     <span>
                                         <i className="flaticon-user" />{person_allow}
@@ -1776,7 +1776,7 @@ function RoomDetails() {
                             <div className="col-lg-4 sticky-item">
                                 <div className="rts__booking__form has__background is__room__details sticky-item">
                                     <form action="#" method="post" className="advance__search">
-                                        <h5 className="pt-0">Book Your Stay</h5>
+                                        <h5 className="pt-0" style={{fontWeight: 'bold'}}>Book Your Stay</h5>
                                         <div className="advance__search__wrapper">
                                             {/* single input */}
                                             <div className="query__input wow fadeInUp">

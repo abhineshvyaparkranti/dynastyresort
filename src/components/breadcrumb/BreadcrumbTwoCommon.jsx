@@ -11,7 +11,7 @@ function BreadcrumbTwoCommon ({ title, description, bgImage }) {
             {/* page header */}
             <div
                 className="rts__section page__hero__height page__hero__bg"
-                style={{ backgroundImage: `url(${bgImage || '/assets/images/pages/header__bg.webp'})` }}
+                style={{ backgroundImage: `url(${bgImage || '/assets/images/banner/roombanner.jpg'})` }}
             >
                 <div className="container">
                     <div className="row align-items-center justify-content-center">

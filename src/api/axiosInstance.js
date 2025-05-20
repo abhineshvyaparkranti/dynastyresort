@@ -11,10 +11,22 @@
 // export default axiosInstance;
 
 
-import axios from 'axios';
+// import axios from 'axios';
 
+// const axiosInstance = axios.create({
+//   baseURL: 'https://dynastyresort.vyaparkranti.in/laravel/api', // Update this
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+// });
+
+// export default axiosInstance;
+
+
+import axios from 'axios';
+ 
 const axiosInstance = axios.create({
-  baseURL: 'https://dynastyresort.vyaparkranti.in/laravel/api', // Update this
+  baseURL: 'https://dynastyresort.com/laravel/api', // Update this
   headers: {
     'Content-Type': 'application/json',
   },

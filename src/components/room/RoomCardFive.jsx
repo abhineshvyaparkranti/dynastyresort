@@ -100,12 +100,12 @@ function RoomCardFive( {roomID} ) {
                 {/* <Link to={`/room2/${roomID}`} className="room__card__title h5"> 
                     {title || 'Deluxe Room'}
                 </Link> */}
-                <div className="room__card__title h5"> {title || 'Deluxe Room'} </div>
+                <div className="room__card__title h5" style={{fontWeight: 'bold'}}> {title || 'Deluxe Room'} </div>
                  
                 <div className="room__card__meta__info">
                     <span>
                         <i className="flaticon-construction" />
-                        {size} ft
+                        {size} sq ft
                     </span>
                     <span>
                         <i className="flaticon-user" />

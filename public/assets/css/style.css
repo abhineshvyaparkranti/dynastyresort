@@ -8531,12 +8531,12 @@ input:focus-visible {
 }
 
 .theme-btn.sm-btn {
-  padding: 5px 12px;
+  padding: 5px 8px;
 }
 
 @media screen and (max-width: 1200px) {
   .theme-btn.sm-btn {
-    padding: 5px 10px;
+    padding: 5px 8px;
   }
 }
 

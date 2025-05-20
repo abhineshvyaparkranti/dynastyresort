@@ -79,7 +79,7 @@ const [showModal, setShowModal] = useState(false);
                       </div>
                       <div className="single__offer__content">
                         <Link to="#">
-                          <h6 style={{color: 'black', fontSize: '1.5rem'}}>{item.title}</h6>
+                          <h6 style={{color: 'black', fontSize: '1.5rem', fontWeight: 'bold'}}>{item.title}</h6>
                         </Link>
                         <ul className="offer__included">
                           {features.map((feature, i) => (

@@ -241,7 +241,7 @@ function SimilarRoom() {
                                     roomImage={room.banner_image || getFirstImage(room.images)}
                                     roomTitle={room.title}
                                     roomPrice={room.price || `${room.category}`}
-                                    roomSize={`${room.size} ft`}
+                                    roomSize={`${room.size} sq ft`}
                                     roomCapacity={`${room.person_allow} Person`}
                                     roomSlug={room.slug}
                                     roomDetails={room.details}

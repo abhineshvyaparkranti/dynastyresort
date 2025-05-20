@@ -166,6 +166,8 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { getContact } from '../../api/getContact';
 import { postConatct } from '../../api/postContact';
 import Faq from './Faq';
+import BankDetails from './BankDetails';
+import ContactAddress from './ContactAddress';
 
 function ContactOne() {
   const [contact, setContact] = useState(null);
@@ -303,10 +305,11 @@ function ContactOne() {
           <div className="col-lg-6">
             <img
               className="rounded-2 w-100 img-fluid"
-              src="/assets/images/pages/contact.webp"
+              src="/assets/images/banner/roombanner.jpg"
               width={645}
               height={560}
               alt="contact"
+              style={{paddingTop: '10px'}}
             />
           </div>
         </div>
@@ -342,7 +345,7 @@ function ContactOne() {
             <div className="col-lg-6">
               <div className="contact__info">
                 <div className="contact__info__item">
-                  <h4>Hotel Info Center</h4>
+                  <h4 style={{fontWeight: 'bold'}}>Hotel Info Center</h4>
                   <p>
                     Open Hours: Monday – Sunday <br />
                     Telephone: {loading ? <Skeleton width={250} /> : contact?.mobile} <br />
@@ -350,7 +353,7 @@ function ContactOne() {
                   </p>
                 </div>
                 <div className="contact__info__item">
-                  <h4>Hotel Location</h4>
+                  <h4 style={{fontWeight: 'bold'}}>Hotel Location</h4>
                   <p>
                     Address: {loading ? <Skeleton width={300} /> : contact?.address} <br />
                     Telephone: {loading ? <Skeleton width={250} /> : contact?.mobile} <br />
@@ -361,6 +364,15 @@ function ContactOne() {
             </div>
           </div>
 
+
+
+        {/* contact address */}
+
+        <ContactAddress />
+
+        {/* contact address */}
+        {/* bank details */}
+        <BankDetails />
           {/* FAQ Section */}
           <Faq />
         </div>

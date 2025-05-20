@@ -25,7 +25,7 @@ function RoomCardSix(props) {
                     <div className="room__card__meta__info">
                         <span>
                             <i className="flaticon-construction" />
-                            Size: 35 ft
+                            Size: 35 sq ft
                         </span>
                         <span>
                             <i className="flaticon-user" />
@@ -64,7 +64,7 @@ function RoomCardSix(props) {
                     <div className="room__card__meta__info">
                         <span>
                             <i className="flaticon-construction" />
-                            Size: 35 ft
+                            Size: 35 sq ft
                         </span>
                         <span>
                             <i className="flaticon-user" />

@@ -407,7 +407,7 @@ function RoomSeven() {
                         <div className="col-xl-4 col-lg-5 order-1 order-lg-2 mb-5 mb-lg-0">
                             <div className="rts__booking__form has__background no__shadow sticky-item">
                                 <form action="#" method="post" className="advance__search">
-                                    <h5>Book Your Stay</h5>
+                                    <h5 style={{fontWeight: 'bold'}}>Book Your Stay</h5>
                                     <div className="advance__search__wrapper">
                                         
                                         {/* Check-in Input */}
