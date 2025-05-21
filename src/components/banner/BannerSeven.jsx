@@ -31,7 +31,7 @@ function BannerSeven() {
                                 <div className="container">
                                     <div className="row">
                                         <form
-                                            action="/room-two"
+                                            action="room"
                                             method="post"
                                             className="advance__search"
                                         >

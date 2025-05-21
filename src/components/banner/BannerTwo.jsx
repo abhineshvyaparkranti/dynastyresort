@@ -251,7 +251,7 @@ function BannerTwo() {
                               {slide.heading_bottom || "Choosing Bokinn was one of the best decisions we've ever made. They have proven to be a reliable and innovative partner"}
                             </h3>
                             <Link
-                              to={slide.button_link || slide.buttonLink || "/room-two"}
+                              to={slide.button_link || slide.buttonLink || "room"}
                               className="theme-btn btn-style fill no-border"
                             >
                               <span>{slide.button_text || slide.buttonText || "Discover Room"}</span>
@@ -282,7 +282,7 @@ function BannerTwo() {
                             partner
                           </h3>
                           <Link
-                            to="/room-two"
+                            to="room"
                             className="theme-btn btn-style fill no-border"
                           >
                             <span >Discover Room</span>

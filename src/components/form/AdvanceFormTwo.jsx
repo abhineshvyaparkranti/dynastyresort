@@ -9,7 +9,7 @@ function AdvanceFormTwo() {
         <div className="rts__section advance__search__section is__page has__border pt-120 pb-60">
             <div className="container">
                 <div className="row">
-                    <form action="/room-two" method="post" className="advance__search">
+                    <form action="room" method="post" className="advance__search">
                         <div className="advance__search__wrapper wow fadeInUp">
                             {/* Check In Date */}
                             <div className="query__input">

@@ -110,7 +110,7 @@ function HomeRoom() {
 
                <div className="text-center mt-5">
        <Link
-          to="/room-two"
+          to="room"
           className="theme-btn btn-style sm-btn fill"
         >
           View All Rooms

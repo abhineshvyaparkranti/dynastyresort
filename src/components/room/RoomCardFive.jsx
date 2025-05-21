@@ -121,7 +121,7 @@ function RoomCardFive( {roomID} ) {
                   <span>Discover More</span>
                </Link> */}
                {/* <Link
-                                   to={`/room3/${roomSlug || roomID}`}
+                                   to={`/rooms/${roomSlug || roomID}`}
                                    state={{ roomSlug: roomSlug }}
                                    className="room__btn"
                                    onClick={ClickHandler}

@@ -73,7 +73,7 @@ function RouterPage() {
           <Route path="/activities" element={<Activities />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/room-one" element={<RoomOne />} />
-          <Route path="/room-two" element={<RoomTwo />} />
+          <Route path="room" element={<RoomTwo />} />
           <Route path="/room-three" element={<RoomThree />} />
           <Route path="/room-four" element={<RoomFour />} />
           {/* <Route path="/room2/:id" element={<RoomDetails />} /> */}
@@ -83,7 +83,7 @@ function RouterPage() {
 
 
           <Route path="/room2/:slug" element={<RoomDetailsTwo />} />
-          <Route path="/room3/:slug" element={<RoomDetailsSimilarPage />} />
+          <Route path="/rooms/:slug" element={<RoomDetailsSimilarPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
           <Route path="/cart" element={<Cart />} />

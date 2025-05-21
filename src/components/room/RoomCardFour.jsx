@@ -150,7 +150,7 @@ function RoomCardFour(props) {
             <div className="room__card__top">
                 <div className="room__card__image">
                     <Link 
-                        to={`/room3/${roomSlug || roomID}`} 
+                        to={`/rooms/${roomSlug || roomID}`} 
                         state={{ roomSlug: roomSlug }}
                         onClick={ClickHandler}
                     >
@@ -181,7 +181,7 @@ function RoomCardFour(props) {
             </div>
             <div className="room__card__meta">
                 <Link 
-                    to={`/room3/${roomSlug || roomID}`} 
+                    to={`/rooms/${roomSlug || roomID}`} 
                     state={{ roomSlug: roomSlug }}
                     className="room__card__title h5"
                     onClick={ClickHandler}
@@ -206,7 +206,7 @@ function RoomCardFour(props) {
                 </p>
                 
                 <Link
-                    to={`/room3/${roomSlug || roomID}`}
+                    to={`/rooms/${roomSlug || roomID}`}
                     state={{ roomSlug: roomSlug }}
                     className="room__btn"
                     onClick={ClickHandler}

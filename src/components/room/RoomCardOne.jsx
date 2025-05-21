@@ -79,7 +79,7 @@
 //             </div>
 //             <div className="room__content">
 //                 <Link
-//                     to={`/room3/${roomSlug || roomID}`}
+//                     to={`/rooms/${roomSlug || roomID}`}
 //                     state={{
 //                         roomID,
 //                         roomSlug,
@@ -194,7 +194,7 @@ function RoomCardOne(props) {
 
             <div className="room__content">
                 <Link
-                    to={`/room3/${roomSlug || roomID}`}
+                    to={`/rooms/${roomSlug || roomID}`}
                     state={{
                         roomID,
                         roomSlug,

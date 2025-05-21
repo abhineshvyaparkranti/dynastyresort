@@ -376,7 +376,7 @@ function RoomSeven() {
                                             </Link> */}
                                             <Link 
                                                 onClick={ClickHandler} 
-                                                to={`/room3/${room.slug}`}  
+                                                to={`/rooms/${room.slug}`}  
                                                 state={{ roomData: room }}   
                                                 >
                                                 <RoomCardFive roomID={room.id} />

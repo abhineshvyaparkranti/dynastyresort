@@ -172,7 +172,7 @@ function HeaderThree() {
                                                                     <Link to="/room-one">Room One</Link>
                                                                 </li>
                                                                 <li role="menuitem">
-                                                                    <Link to="/room-two">Room Two</Link>
+                                                                    <Link to="room">Room Two</Link>
                                                                 </li>
                                                                 <li role="menuitem">
                                                                     <Link to="/room-three">Room Three</Link>

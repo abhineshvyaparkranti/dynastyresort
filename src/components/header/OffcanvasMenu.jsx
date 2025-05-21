@@ -92,18 +92,18 @@ function OffcanvasMenu({ isOpen, onClose }) {
                                         </li> */}
 
                                          <li className="slide">
-                                            <Link className="slide__menu__item" to="/room-two"> Rooms</Link>
+                                            <Link className="slide__menu__item" to="room"> Rooms</Link>
                                         </li>
 
                                         {/* Rooms Menu */}
                                         {/* <li className={`slide has__children ${activeMenu === 2 ? "active" : ""}`}>
-                                            <Link className="slide__menu__item" to="/room-two" onClick={() => toggleMenu(2)}>
+                                            <Link className="slide__menu__item" to="room" onClick={() => toggleMenu(2)}>
                                                 Rooms
                                                 <span className="toggle" />
                                             </Link>
                                             <ul className="slide__menu" style={{ display: activeMenu === 2 ? "block" : "none" }}>
                                                 <li><Link to="/room-one">Room One</Link></li>
-                                                <li><Link to="/room-two">Room Two</Link></li>
+                                                <li><Link to="room">Room Two</Link></li>
                                                 <li><Link to="/room-three">Room Three</Link></li>
                                                 <li><Link to="/room-four">Room Four</Link></li>
                                                 <li><Link to="/room-details-1">Room Details One</Link></li>
@@ -273,7 +273,7 @@ function OffcanvasMenu({ isOpen, onClose }) {
                                         </Link>
                                         <ul className="slide__menu" style={{ display: activeMenu === 2 ? "block" : "none" }}>
                                             <li><Link to="/room-one">Room One</Link></li>
-                                            <li><Link to="/room-two">Room Two</Link></li>
+                                            <li><Link to="room">Room Two</Link></li>
                                             <li><Link to="/room-three">Room Three</Link></li>
                                             <li><Link to="/room-four">Room Four</Link></li>
                                             <li><Link to="/room-details-1">Room Details One</Link></li>

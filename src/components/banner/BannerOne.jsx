@@ -45,7 +45,7 @@ function BannerOne() {
                                                 partner
                                             </p>
                                             <Link
-                                                to="/room-two"
+                                                to="room"
                                                 className="theme-btn btn-style fill no-border "
                                             >
                                                 <span>Discover Room</span>
