@@ -169,7 +169,7 @@ function HeaderOne() {
                                                 </Link>
                                             </li> */}
                                             <li className="navigation__menu--item has-child ">
-                                                <Link to="room" className="navigation__menu--item__link theme-btn btn-style sm-btn fill">
+                                                <Link to="/room" className="navigation__menu--item__link theme-btn btn-style sm-btn fill">
                                                     <span>Rooms</span> 
                                                 </Link>
                                                 {/* <ul className="submenu sub__style" role="menu">

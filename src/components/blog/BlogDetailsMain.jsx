@@ -306,14 +306,14 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 function BlogDetailsMain() {
-    const { id } = useParams();
+    const { slug } = useParams();
     const navigate = useNavigate();
     const [blogPost, setBlogPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [relatedPosts, setRelatedPosts] = useState([]);
 
     const blogTitle = blogPost?.title || 'Check out this blog!';
-    const blogSlug = blogPost?.slug || id;
+    const blogSlug = blogPost?.slug ;
     const blogUrl = `https://dynastyresort.vyaparkranti.com/${blogSlug}`;
 
 
@@ -321,7 +321,7 @@ function BlogDetailsMain() {
         // Scroll to top when component mounts
         window.scrollTo(0, 0);
         
-        getBlogDetailsById(id)
+        getBlogDetailsById(slug)
             .then((data) => {
                 if (data.status && data.blog) {
                     // Parse blog images if needed
@@ -344,7 +344,7 @@ function BlogDetailsMain() {
                 console.error("Error fetching blog details:", err);
             })
             .finally(() => setLoading(false));
-    }, [id]);
+    }, [slug]);
 
     if (loading) {
         return (

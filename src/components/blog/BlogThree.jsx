@@ -244,9 +244,9 @@ function BlogThree() {
                 <Skeleton count={4} height={200} />
               ) : (
                 posts.slice(0, visiblePosts).map((data, index) => (
-                  <div key={index} onClick={() => handlePostClick(data.id)} style={{ cursor: 'pointer' }}>
+                  <div key={index} onClick={() => handlePostClick(data.slug)} style={{ cursor: 'pointer' }}>
                     <PostFour
-                      blogID={data.id}
+                      blogID={data.slug}
                       blogImage={data.blog_images?.[0]} // first image
                       blogTitle={data.title}
                       blogCategory={data.blog_category}
@@ -288,7 +288,7 @@ function BlogThree() {
               <h6 className="mb-4">Latest Post</h6>
               <div className="latest__post mb-30">
                 {posts.slice(0, 3).map((post, index) => (
-                  <div key={index} className="single__post" onClick={() => handlePostClick(post.id)} style={{ cursor: 'pointer' }}>
+                  <div key={index} className="single__post" onClick={() => handlePostClick(post.slug)} style={{ cursor: 'pointer' }}>
                     <div className="single__post__thumb">
                       <img 
                         src={post.blog_images?.[0] || `assets/images/pages/blog/r-${index + 1}.webp`} 

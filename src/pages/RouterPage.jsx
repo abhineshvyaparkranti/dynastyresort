@@ -85,7 +85,7 @@ function RouterPage() {
           <Route path="/room2/:slug" element={<RoomDetailsTwo />} />
           <Route path="/rooms/:slug" element={<RoomDetailsSimilarPage />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route path="/blog/:slug" element={<BlogDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/offer" element={<OfferPage />} />
