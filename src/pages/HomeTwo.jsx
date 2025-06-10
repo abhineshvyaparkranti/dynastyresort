@@ -15,6 +15,7 @@ import posts from '../components/data/data-room.json'
 import HomeRoom from '../components/room-details/HomeRoom'
 import BookingModal from '../components/header/BookingModal'
 import AwardsSection from '../components/award/AwardsSection';
+import GuestReviewHome from '../components/GuestExperience/GuestReviewHome';
  
  
  
@@ -53,6 +54,7 @@ function HomeTwo() {
          
         
         <TestimonialTwo />
+        <GuestReviewHome />
         <VideoTwo />
         <OfferTwo />
         <GalleryTwo limit={4} />

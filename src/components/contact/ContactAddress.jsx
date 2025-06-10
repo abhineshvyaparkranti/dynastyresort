@@ -14,24 +14,24 @@ const ContactAddress = () => {
             <div className="card-body">
               <address>
                 <p>
-                  <i className="bi bi-geo-alt me-2"></i>
-                  252/1, First Floor, Shahpur Jat<br />
+                  <i className="bi bi-geo-alt "></i>
+                  252/1, First Floor, Shahpur Jat
                   Delhi - 110049
                 </p>
                 <p>
-                  <i className="bi bi-telephone-fill me-2"></i>
-                  <strong>Complaints:</strong> 9873601704, 9999835288
+                  <i className="bi bi-telephone-fill "></i>
+                  <strong>Complaints:</strong> +91-9873601704, +91-9999835288
                 </p>
                 <p>
-                  <i className="bi bi-person me-2"></i>
-                  <strong>Devender Kumar:</strong> +91 9311001704
+                  <i className="bi bi-person "></i>
+                  <strong>G.M Devender Kumar:</strong> +91-9311001704
                 </p>
                 <p>
-                  <i className="bi bi-person me-2"></i>
-                  <strong>Mehnaz:</strong> +91 9310959763
+                  <i className="bi bi-person "></i>
+                  <strong>Mehnaz:</strong> +91-9310959763
                 </p>
                 <p>
-                  <i className="bi bi-envelope me-2"></i>
+                  <i className="bi bi-envelope "></i>
                   <strong>Email:</strong> info@dynastyresort.com
                 </p>
               </address>
@@ -47,16 +47,21 @@ const ContactAddress = () => {
             </div>
             <div className="card-body">
               <address>
-                <p>
-                  <i className="bi bi-telephone-fill me-2"></i>
-                  <strong>Phone:</strong> +91-9873601704, 9999835288
+                  <p>
+                  <i className="bi bi-geo-alt "></i>
+                  <strong>G.M Devender Kumar</strong> 
                 </p>
                 <p>
-                  <i className="bi bi-phone-fill me-2"></i>
+                  <i className="bi bi-telephone-fill "></i>
+                   
+                  <strong>Phone:</strong> +91-9999835288
+                </p>
+                <p>
+                  <i className="bi bi-phone-fill "></i>
                   <strong>Mobile:</strong> +91-9311001704
                 </p>
                 <p>
-                  <i className="bi bi-envelope me-2"></i>
+                  <i className="bi bi-envelope "></i>
                   <strong>E-Mail:</strong> gm@dynastyresort.com
                 </p>
                 {/* <div className="mt-4 pt-2">
@@ -77,26 +82,28 @@ const ContactAddress = () => {
         <div className="col-lg-4 col-md-12 mb-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header   text-white" style={{background: '#ab8a62', color: 'white'}}>
-              <h5 className="mb-0">Resort Address</h5>
+              <h5 className="mb-0">Sales (Punjab Office)</h5>
             </div>
             <div className="card-body">
               <address>
-                <p>
-                  <i className="bi bi-geo-alt me-2"></i>
-                  Dynasty Resort, Khurpatal 10 Kms From Nainital,<br />
-                  Situated on KalaDungi, Nainital Road
+                <p  >
+                  <i className="bi bi-geo-alt "></i>
+                  
+                  New Holidays Tour Pnb Road Near Post office Salem Tabri Ludhiana 141008
+
+                  
                 </p>
-                <p>
+                {/* <p>
                   <i className="bi bi-telephone-fill me-2"></i>
                   <strong>Phone:</strong> 05942-240115
+                </p> */}
+                <p>
+                  <i className="bi bi-phone-fill "></i>
+                  <strong>Mobile:</strong> +91-9216072001 / +91-7837972001
                 </p>
                 <p>
-                  <i className="bi bi-phone-fill me-2"></i>
-                  <strong>Mobile:</strong> +91 9690252601
-                </p>
-                <p>
-                  <i className="bi bi-envelope me-2"></i>
-                  <strong>E-Mail:</strong> info@dynastyresort.com
+                  <i className="bi bi-envelope "></i>
+                  <strong>E-Mail:</strong> salesnht@gmail.com 
                 </p>
               </address>
             </div>
